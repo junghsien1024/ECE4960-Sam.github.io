@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Fast Robots: ECE 4960</title>
+    <title>Fast Robots: ECE 4960 Lab 1</title>
     <!--
 
     Template 2103 Central
@@ -47,7 +47,7 @@
     <div class="container">
         <section class="tm-section-head" id="top">
             <header id="header" class="text-center tm-text-gray">
-                <h1>Fast Robots: ECE 4960</h1>
+                <h1>Fast Robots: ECE 4960 Lab 1</h1>
             
             </header>
 
@@ -96,6 +96,9 @@
                     </li>
                     <li>
                         <a href="#">Class info</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 1</a>
                     </li>
                 </ul>
             </div>
@@ -152,35 +155,50 @@
                     <p>+ Nulla malesuada elit nec nisi aliquet pretium.</p>
                 </div>
             </div>
-        </section> -->
-   <p class="btmspace-50 justified" >Hi, my name is Sam and this page is used to demonstrate the autonomous car project in ECE 4960. This course will focus on systems level design and implementation of dynamic autonomous robots. We will try to covert a RC car into an autonmous robot with distance sensors, microprocessors, and bluetooth. </p>
-        <section class="tm-section-3 tm-section-mb" id="tm-section-3">
-            <div class="row">
-                <div class="col-md-6 tm-mb-sm-4 tm-2col-l">
-                    <div class="image">
-                        <img src="img/car.png" class="img-fluid"/ width="300" height="300">
-                    </div>
-                    <div class="tm-box-3">
-                        <h2>Remote Control Car- 2.4Ghz 4WD Off Road Water & Land</h2>
-                        <p>It equipped with waterproof rubber ring to protect inner accessory of the waterproof RC car boat which makes it possible to even drive on the water, The RC car can run on the land, Sandy beach, wetlands, weedy lawn and even water smoothly, work perfectly on bumpy grounds.</p>
-                      <!--  <div class="text-center">
-                            <a href="#tm-section-5" class="btn btn-big">Details</a>
-                        </div> -->
-                    </div>
-                </div>
-                <div class="col-md-6 tm-2col-r">
-                    <div class="image">
-                        <img src="img/components.png" class="img-fluid" / width="600" height="600">
-                    </div>
-                    <div class="tm-box-3">
-                        <header>
-                            <h2>Chips for the project</h2>
-                        </header>
-                        <p> In this project, we will use Artemis Nano as our core processor. Besides, we will have ToF (time of flight) sensor and the IMU chip to combine precise acceleration and angular rate measurement in order to implement the dynamic behavior on the robot.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </section> --><div class="tm-box-3">
+   <p class="btmspace-50 justified" >In lab 1, we will setup the Artemis board and the software environment for the following projects. I followed the instructions to download Arduino IDE on my Mac with the version 10.13.6. However, once the Arduino was installed, I opened the software preference and added “https://raw.githubusercontent.com/sparkfun/Arduino_Boards/master/IDE_Board_Manager/package_sparkfun_index.json” in the additional board manager URL box. Then, I downloaded the Artemis board documents by searching in boards manager. After the board installation was complete, I hooked the Artemis board up to my computer. The complete set up is shown in Figure 1.</p>
+	<div style="text-align:center;">
+    <img class="img-rounded" src="img/setup1.jpeg" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 1. Artemis board setup.</p>
+		
+	<p class="btmspace-50 justified" >However, the system showed an error message “Artemis SVL Bootloader /DEV/CU.USBMODEM1411 not found but we detected the following serial ports: n/a”. Therefore, I tried to debug the error by searching the solution online and asking TA in Campuswire. I found the answer that there was no serial port support on my computer, so I cannot use the USB-C. So, I followed the same process and the Artemis board worked on my Windows system. Next, I followed the instructions in “Example: Blink it Up” to test the LED feature on the board. I used two different delay values which show in Figure 2 to show the relationship between the blink frequency and the delay values.</p>
+	<div style="text-align:center;">
+    <img class="img-rounded" src="img/LED.png" alt="LED" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 2. Blink code.</p>
+	<p class="btmspace-50 justified" >In Video 1, the delay value is 1000 and the value is 500 in Video 2, so we can see the LED blinks more frequently when the delay value is smaller.</p>
+          <div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/7fyi_eNg0tw" frameborder="0" allowfullscreen></iframe></div>
+			<p class="btmspace-5 text-center" >Video 1: LED Blink with 1000 ms delay.</p>
+		    <div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/ZlnHFQy-ATw" frameborder="0" allowfullscreen></iframe></div>
+			<p class="btmspace-5 text-center" >Video 2: LED Blink with 500 ms delay.</p>
+		<p class="btmspace-50 justified" >Next, we tested the serial port by running the serial example (Example2_serial) that was provided in the Artemis example libraries. In the video, when we input “a”, the port will return the message of how many cheeses to dispense in the system. When we input “x”, the system will quit the program.</p>
+			<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/UN6YuAT8mzY" frameborder="0" allowfullscreen></iframe></div>
+			<p class="btmspace-5 text-center" >Video 3: Serial port example.</p>
+		<p class="btmspace-50 justified" >Later, we tested the analog read features by running the Example4_analogRead program. The program will detect the chip’s temperature and returns the value in Celsius. We can see that when we were blowing on the chip, the temperature increased in the video.
+					<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/nqh9FP9Rhys	" frameborder="0" allowfullscreen></iframe></div>
+			<p class="btmspace-5 text-center" >Video 4: Analog read example.</p>
+		Last, we tested the pulse density microphone on the board by running the Example1_MircophoneOutput. The program will find the frequency bin with the largest magnitude. At first, the serial monitor returns random values in the serial monitor while the program was running, which shows in Figure 3.
+			<div style="text-align:center;">
+			<img class="img-rounded" src="img/Error.png" alt="LED" style="width:50%"></div>
+			 <p class="btmspace-5 text-center" >Figure 3. Random value in the serial monitor.</p>
+
+		I asked the TA about the situation, and I got the answer that the baud rate has to match the value in the serial setup. Once debugging, the serial number could show the proper value of the frequency, which shows in the following video. 
+							<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/9dItumeIhSw	" frameborder="0" allowfullscreen></iframe></div>
+			<p class="btmspace-5 text-center" >Video 5: Microphone example.</p>	
+		After finishing the board testing, we hooked up the battery to the Artemis board, and the yellow LED was light-up, which shows in Figure 4. 
+					<div style="text-align:center;">
+			<img class="img-rounded" src="img/setup2.jpeg" alt="LED" style="width:50%"></div>
+			 <p class="btmspace-5 text-center" >Figure 4. Artemis board with the battery (Li-Ion, 3.7V, 400 mAh).</p>	
+		In the lab exercise, we need to make make the program turn on the LED when people whistle and off otherwise. I realized that the frequency value of the whistle sound will almost larger than 1000, so I made a slight change in the audio example by adding an if statement to set up the condition. When the frequency value is larger than 1000, the LED will turn on. The code is shown in Figure 5 and the demonstration is shown in the following video. 
+		</p>
+					<div style="text-align:center;">
+			<img class="img-rounded" src="img/lab1code.png" alt="LED" style="width:50%"></div>
+			 <p class="btmspace-5 text-center" >Figure 5. The code that is modified in the Example1_MircophoneOutput.</p>	
+							<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/8vJ768SDv44	" frameborder="0" allowfullscreen></iframe></div>
+			<p class="btmspace-5 text-center" >Video 6: Exercise with PC connected.</p>	
+							<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/1rpqzWHQRyk	" frameborder="0" allowfullscreen></iframe></div>
+			<p class="btmspace-5 text-center" >Video 7: Exercise without PC connected.</p>		
+  </div>
+
 <!--
         <section class="tm-section-4 tm-section-mb" id="tm-section-4">
             <div class="row">
