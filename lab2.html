@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Fast Robots: ECE 4960</title>
+    <title>Fast Robots: ECE 4960 Lab 2</title>
     <!--
 
     Template 2103 Central
@@ -47,7 +47,7 @@
     <div class="container">
         <section class="tm-section-head" id="top">
             <header id="header" class="text-center tm-text-gray">
-                <h1>Fast Robots: ECE 4960</h1>
+                <h1>Fast Robots: ECE 4960 Lab 2</h1>
             
             </header>
 
@@ -100,90 +100,82 @@
                     <li>
                         <a href="#">Class info</a>
                     </li>
+					<li>
+                        <a href="#">Lab 1</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 2</a>
+                    </li>
                 </ul>
             </div>
         </section>
+        </section> --><div class="tm-box-3">
+   <p class="btmspace-50 justified" >In lab 2, we are going to learn wireless communication with Bluetooth of the Artemis board. We will discuss the framework, the latency, and the data rate of the BLE modules. 
 
- <!--       <section class="row" id="tm-section-1">
-            <div class="col-lg-12 tm-slider-col">
-                <div class="tm-img-slider">
-                    <div class="tm-img-slider-item" href="img/car.png">
-                        <p class="tm-slider-caption">Water proof RC car.</p>
-                        <img src="img/car.png" alt="Image" class="tm-slider-img" >
-                    </div>
-                    <div class="tm-img-slider-item" href="img/components.png">
-                        <p class="tm-slider-caption">Chips for the project.</p>
-                        <img src="img/components.png" alt="Image" class="tm-slider-img">
-                    </div>
-                </div>
-            </div>
-        </section> 
+The first task is to setup USB passthrough so the adaptor should work with the Ubuntu VM. The BLE has existed on my computer (Windows 10), so the only setting we have to do is go to the VM devices → USB → Intel Bluetooth to enable the bluetooth on the VM. It can be verified by using the command “hciconfig” or “lsusb”, which is shown in Figure 1.
+	   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/USB.png" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 1. Bluetooth connection verification.</p>
+	
+Next, we need to install the bleak library on python3 by running the command “python3 -m pip install bleak”. The bleak library is a GATT client software, capable of connecting to BLE devices acting as GATT servers. Figure 2 shows the installation process of the bleak.	   
+	   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/installbleak.PNG" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 2. The installation process of bleak.</p>	   
+Then, we upload the provided Arduino sketch to the Artemis board. However, it popped out an error that shows “wsf_types.h file is not found” because the version of the Apollo library in Arduino is too new (1.2.0), so we need to download the old version 1.1.2 to compile to program. Once the program is uploaded successfully, the blue LED blinks rapidly which shows in Video 1 and the serial monitor also shows the message in Figure 3. 
+			
+          <div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/usX29EjJ1rw" frameborder="0" allowfullscreen></iframe></div>
+			<p class="btmspace-5 text-center" >Video 1: LED Blink with upload verification.</p>
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/serialmonitor.PNG" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 3. Serial monitor of Bluetooth message.</p>
+	  
+	   Later, we run the main.py on VM to discover the BLE on the Artemis board and it will show the message in Figure 4 when the robot is found. 
+	   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/mainfuc.PNG" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 4. The message when the robot is found.</p> 
+	   We can now write several programs to understand the robot command framework. The basic structure is 99 bytes which include the first byte as the command type and the second byte is the length of the message. The rest of the bytes are the data information. The first experiment is to ping the robot by running the code “await theRobot.ping()”, which shows in Figure 5.
+	   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/pingcode.png" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 5. The robot ping code.</p>
+	   When we run the program, we could see the result in Figure 6.
+	   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/robotpingval.PNG" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 6. The result of the robot ping.</p>
+		   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/pingdata.jpg" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 7. Histogram of the robot ping.</p>
+	   It can see the major time of the robot ping is between 138~154 ms and the average latency is 154.7 ms for 64 packets. From the main.py program and the serial monitor (l_Rcvd), we can see that there are 99 bytes per ping transferred and the transfer rate will be 10240 bits/seconds. It is slower than the serial connection which is 115200 bits per second for the program. 
 
-        <section class="tm-section-2 tm-section-mb" id="tm-section-2">
-            <div class="row">
-                <div class="col-xl-4 col-lg-4 col-md-6 mb-lg-0 mb-md-5 mb-5 pr-md-5">
-                    <header class="text-center">
-                        <i class="fa fa-4x fa-power-off pl-5 pb-5 pr-5 pt-2"></i>
-                    </header>
+	Next, we modified the program to request a float number. The code shows in Figure 8. We comment “await theRobot.ping()” and uncomment “await theRobot.sendCommand(Commands.REQ_FLOAT)” in the main.py to get the result in Figure 9.
+	   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/floatcode.PNG" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 8. The float code.</p>
+		   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/floatingpt.PNG" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 9. The result of requesting a float value.</p>
+	   We could see the value that displayed to the screen is slightly different from the float that we tried to send. It means that the data will a little distortion by using Bluetooth, so the float comparison will not be accurate.
 
-                    <h2>Lorem ipsum dolor</h2>
-                    <p>Central Template is provided by <a href="https://www.facebook.com/tooplate" target="_blank">Tooplate</a>. Vestibulum sit amet tortor velit.
-                        Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat
-                malesuada. </p> 
+Last, we have already known what the round-latency is, so we want to understand the wireless data transfer rate is by modified the Ardunio code that shows in Figure 10. We want to send two different bytes values in order to compare the speed rate. The small value is 14 bytes and the large value is 46 bytes. Therefore, the first data set has one 32 bit value and one 64 bit value. The other data set has one 32 bit value and five 64 bit value. Also, we changed the code in main.py in order to match the unpack buffer that shows in Figure 11. 
+	   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/DATARATECODE.PNG" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 10. Data rate code.</p>
+		   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/bytepy.PNG" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 11. Modification in SimpleHandler in main.py.</p>
+	   We could see the part of the result in Figure 12. Then, we plotted the histogram using excel to compare the rate difference of two different bytes.
+	   	   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/testdatarate.PNG" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 12. The result of the testing rate.</p>
+		   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/transdata1.jpg" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 13. Histogram of the 14 bytes transfer.</p>
+		   	<div style="text-align:center;">
+    <img class="img-rounded" src="lab2/transdata2.jpg" alt="Set up 1" style="width:50%"></div>
+     <p class="btmspace-5 text-center" >Figure 14. Histogram of the 46 bytes transfer.</p>
+The average time of 14 bytes is 11.338 ms and the average time of 46 bytes is 11.49ms. Therefore, we can determine that the larger bytes will require a longer time to transfer the data. Besides, the 14 bytes should have 164 packets to be sent, but the system only received 90 packets instead, which means 32.9% packets were dropped. On the other hand, the 46 bytes should have 339 packets but only 85 packets are received, so there are 75 packets were dropped.	   
+</p>
 
-                    <a href="#tm-section-3" class="btn tm-btn-pad-2 float-right">Learn More</a>
-                </div>
-                <div class="col-xl-4 col-lg-4 col-md-6 mb-lg-0 mb-md-5 mb-5 pr-md-5">
-                    <header class="text-center">
-                        <i class="fa fa-4x fa-bolt pl-5 pb-5 pr-5 pt-2"></i>
-                    </header>
-                    <h2>Lorem ipsum dolor</h2>
-                    <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit.
-                        Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat
-                        malesuada.
-                    </p>
-
-                    <a href="#tm-section-4" class="btn tm-btn-pad-2 float-right">Learn More</a>
-                </div>
-
-                <div class="col-xl-4 col-lg-4 col-md-12">
-                    <h2>Nulla maximus hendrerit</h2>
-                    <p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit.</p>
-                    <p>Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada, iaculis est.</p>
-                    <p>+ Curabitur a massa malesuada, ullamcorper nisi tempus.</p>
-                    <p>+ Maecenas ultricies magna sed suscipit pulvinar.</p>
-                    <p>+ Nulla malesuada elit nec nisi aliquet pretium.</p>
-                </div>
-            </div>
-        </section> -->
-   <p class="btmspace-50 justified" >Hi, my name is Sam and this page is used to demonstrate the autonomous car project in ECE 4960. This course will focus on systems level design and implementation of dynamic autonomous robots. We will try to covert a RC car into an autonmous robot with distance sensors, microprocessors, and bluetooth. </p>
-        <section class="tm-section-3 tm-section-mb" id="tm-section-3">
-            <div class="row">
-                <div class="col-md-6 tm-mb-sm-4 tm-2col-l">
-                    <div class="image">
-                        <img src="img/car.png" class="img-fluid"/ width="300" height="300">
-                    </div>
-                    <div class="tm-box-3">
-                        <h2>Remote Control Car- 2.4Ghz 4WD Off Road Water & Land</h2>
-                        <p>It equipped with waterproof rubber ring to protect inner accessory of the waterproof RC car boat which makes it possible to even drive on the water, The RC car can run on the land, Sandy beach, wetlands, weedy lawn and even water smoothly, work perfectly on bumpy grounds.</p>
-                      <!--  <div class="text-center">
-                            <a href="#tm-section-5" class="btn btn-big">Details</a>
-                        </div> -->
-                    </div>
-                </div>
-                <div class="col-md-6 tm-2col-r">
-                    <div class="image">
-                        <img src="img/components.png" class="img-fluid" / width="600" height="600">
-                    </div>
-                    <div class="tm-box-3">
-                        <header>
-                            <h2>Chips for the project</h2>
-                        </header>
-                        <p> In this project, we will use Artemis Nano as our core processor. Besides, we will have ToF (time of flight) sensor and the IMU chip to combine precise acceleration and angular rate measurement in order to implement the dynamic behavior on the robot.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+	</div>
 <!--
         <section class="tm-section-4 tm-section-mb" id="tm-section-4">
             <div class="row">
