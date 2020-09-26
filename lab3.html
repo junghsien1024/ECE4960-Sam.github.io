@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fast Robots: ECE 4960 Lab 3</title>
+    <!--
+
+    Template 2103 Central
+
+	http://www.tooplate.com/view/2103-central
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/tooplate-style.css">
+    <!-- tooplate style -->
+
+    <script>
+        var renderPage = true;
+
+        if (navigator.userAgent.indexOf('MSIE') !== -1
+            || navigator.appVersion.indexOf('Trident/') > 0) {
+            /* Microsoft Internet Explorer detected in. */
+            alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+            renderPage = false;
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="container">
+        <section class="tm-section-head" id="top">
+            <header id="header" class="text-center tm-text-gray">
+                <h1>Fast Robots: ECE 4960 Lab 3</h1>
+            
+            </header>
+
+            <nav class="navbar narbar-light">
+                <a class="navbar-brand tm-text-gray" href="#">
+                    Menu
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
+                    </span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="https://cei-lab.github.io/ECE4960/">Class Info</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab1.html">Lab 1</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab2.html">Lab 2</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab3.html">Lab 3</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="navbar navbar-default navbar-fixed-top">
+                <a href="/index.html" class="navbar-brand"></a>
+                <botton class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </botton>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="mydropdown">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Class info</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 1</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 2</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 3</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        </section> --><div class="tm-box-3">
+   <p class="btmspace-50 justified" >
+	In this week of the lab, we are going to understand the characteristics of the RC car. We will do simple measurements and set up several experiments to understand the capabilities of the car. Besides, we want to see the performance of how humans can control the car accurately. The overview image of the RC car we used in the lab shows in Figure 1.   
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/robot.JPG" alt="Set up 1" style="width:30%"></div>
+    <p class="btmspace-5 text-center" >Figure 1: The overview of the RC car.</p> 
+	We will remove the upper case of the car to do the test because we will attach several chips on the car platform in the later labs. The car outlook is shown in Figure 2.
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/outlook.JPG" alt="Set up 1" style="width:30%"></div>
+    <p class="btmspace-5 text-center" >Figure 2: The RC car without the case.</p> 
+	<hr>
+	In this section, we will do several simple measurements to understand the characteristics of the car.
+	<p><b>Q: What are the dimensions of the car?</b></p>
+	From Figure 3, the dimensions of the car is 15.2 cm x 13.3 cm x 7.5 cm (length x width x height).
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/length.JPG" alt="Set up 1" style="width:20%"> <img class="img-rounded" src="lab3/width.JPG" alt="Set up 1" style="width:20%"> <img class="img-rounded" src="lab3/height.JPG" alt="Set up 1" style="width:20%"></div>
+    <p class="btmspace-5 text-center" >Figure 3: The length of the car (left), the width of the car (center), the height of the car (left).</p> 
+	<p><b>Q: What is the weight?</b></p>
+	
+	From Figure 4, the car’s weight with a battery is 431.5 grams and the car’s weight without a battery is 367.5 grams.
+	
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/withbattery.JPG" alt="Set up 1" style="width:20%">                 <img class="img-rounded" src="lab3/nobattery.JPG" alt="Set up 1" style="width:20%"></div>
+    <p class="btmspace-5 text-center" >Figure 4: The weight of the car without a battery (right), The weight of the car with a battery (left).</p> 
+	
+	<p><b>Q: How long does it take to charge?</b></p>
+	
+	The power of the battery charger is 250 mA, and the battery we used is a 700 mAh Ni-Cd battery. Therefore, the theoretical time to charge the battery with 20% Efficiency Loss is 3.36 hours. The actual time we charged the battery is almost 4 hours.
+	
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/charger.JPG" alt="Set up 1" style="width:20%">                 <img class="img-rounded" src="lab3/battery.JPG" alt="Set up 1" style="width:20%"></div>
+    <p class="btmspace-5 text-center" >Figure 5: The charger (right), The battery (left).</p> 
+	
+	<p><b>Q: What is the battery lifetime?</b></p>
+	
+	The battery life for the car to run at full speed is about 18 mins, so we could determine the device consumption is around 2500 mA.
+	
+	<hr>
+	
+	In this section, we will set up several experiments to observe the car behavior and record the experimental data for the following labs. In order to test the speed performance of the car, we set up the testing environment which is shown in Video 1. The yellow ball is the starting point, and each purple ball distance is one meter long. The red ball is a middle point, which indicates the five meters distance from the starting points.  
+	
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/l2Z_AeTL-h8" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 1: Testing environment tour.</p>
+	
+	<p><b>Q: What is the range of speed?</b></p>
+	
+	In order to calculate the speed range, we record each time when the car passed one meter long, so we can understand the speed for every one meter. We could see the speed plot and the distance plot for the five testing-sets in Figures 6. Besides, we got the average speed by dividing the total distance with the total time. The range of the speed we got is from 0.6757 m/s to 3.4483 m/s and the average speed is 2.26 m/s. It is quite slower than the value (4.1667 m/s) that shows on the company’s website, but we believed that it was the experimental error and our data is still reliable in the real world. 
+	<div style="text-align:center;">
+	<img class="img-rounded" src="lab3/distime.png" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab3/speedtime.png" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab3/avaspeed.png" alt="Set up 1" style="width:30%"></div>
+    <p class="btmspace-5 text-center" >Figure 6: The distance vs time graph (left), the speed vs time graph (center), the average speed vs time graph (left).</p> 
+	
+	Moreover, we realized that there is a speed-on button that can be pressed, so we repeated the same process, and we got four effective data. The plots are shown in Figure 7. The range of the speed we got is from 2.083 m/s to 3.33 m/s and the average speed is 2.519 m/s, which is faster than the previous test, so the speed button does work properly.
+	
+	<div style="text-align:center;">
+	<img class="img-rounded" src="lab3/distime2.png" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab3/speedtime2.png" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab3/avgspeed2.png" alt="Set up 1" style="width:30%"></div>
+    <p class="btmspace-5 text-center" >Figure 7: The distance vs time graph (left), the speed vs time graph (center), the average speed vs time graph (left).</p> 
+	
+	<p><b>Q: What is the range of acceleration?</b></p>
+	
+	Next, we divided one meter with each time to get the acceleration (we assume the acceleration is constant) for every meter. We could see the acceleration table in Figure 8 (right), and the range is from 0.4565 m/s^2 to 11.89 m/s^2. If we took the average acceleration, the value is 0.87 m/s^2 of these four tests. The figure is shown in Figure 8 (left).
+	
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/accnospeed.png" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab3/avaacc.png" alt="Set up 1" style="width:30%"></div>
+    <p class="btmspace-5 text-center" >Figure 8: The table of the acceleration in every meter (right), The average acceleration for five tests (left).</p> 
+	
+	We also tested the acceleration with the speed button and the acceleration table in every meter is shown in Figure 9 (right) and the average acceleration plot is in 9 (left). The range of the acceleration is from 4.34 m/s^2 to 11.11 m/s^2 and the average acceleration is 1.0578 m/s^2.
+	
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/acc.png" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab3/avgacc2.png" alt="Set up 1" style="width:30%"></div>
+    <p class="btmspace-5 text-center" >Figure 9: The table of the acceleration in every meter with the speed button (right), The average acceleration with the speed button (left).</p>
+	
+	<p><b>Q: What is the braking distance?</b></p>
+	In order to calculate the braking distance, we make the car run at full speed from five meters away and start to stop the car when the car passed the red ball. We will record the time from the start point to the red ball and the time from the red ball to the endpoint. The distance vs time plot is shown in Figure 10 (right) and the table in Figure 10 (left) shows the data.  From the data, we could see the values of the braking distance are different, but the braking speed for the first three tests are pretty close, so we took these three values and calculated the braking force is 71.3 N.
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/brakedis.png" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab3/brakedata.png" alt="Set up 1" style="width:30%"></div>
+    <p class="btmspace-5 text-center" >Figure 9: The distance vs time plot of the braking (right), The table of the braking data (left).</p>
+	
+	<p><b>Q: What surfaces can it handle?</b></p>
+	
+	I have tested the car on the cloth sofa, indoor ceramics floor, plastic platform, and the asphalt road. The car can handle pretty well because its wheel has large friction to climb on the different surfaces. 
+	
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/Cr5Dg-G7vwU" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 2: Testing on the cloth sofa.</p>
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/JLafz7mD7yE" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 3: Testing on the plastic platform.</p>
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/HrIF9HxgHPc" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 4: Testing on the asphalt road.</p>
+
+	<p><b>Q: What stunts can it do?</b></p>
+	
+	The car has two sides motors, so it can do a spin, 360 torments, and one sides standing, which shows in Video 5.
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/uSEXeGoD_mA" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 5: Stunts Capabilities.</p>
+	
+	<p><b>Q: How reliably does the robot turn around its own axis?</b></p>
+
+	From the Video 6, we can see the robot can turn rapidly with a slight offset of its own axis. We put some white powder on the car’s wheel and measure the distance of the offset. The average offset in 3 datasets is 2.3 cm.
+	
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/068ytaqtRVg" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 6: Testing car turning axis.</p>
+	
+	<p><b>Q: How well can you operate the car with manual control?</b></p>
+	It is important to see the performance of the car with manual control. The first experiment is to start the car at a five meters distance and run at the full speed. The user will try to stop the car without a crash. We tested three times and the distance from the car to the wall is 10.3 m, 8.4 m, and 5.3 m, so the average distance is 7.33 m.
+	
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/AnmfBCCDeGs" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 7: Obstacle test.</p>
+	
+	Next, we set up a meter-scale square with four balls in four corners separately. There are four effective data and the times are 9 sec, 6 sec, 8 sec, and 9 sec, so the average time is 8 sec. It is hard for humans to hit four corners accurately at a high speed. The best testing set is shown in the following video.
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/q5YdzKIDvgg" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 8: Four corners test.</p>
+	
+	Then, we want to reproduce the tricks that we found the video on the <a href="https://thedroneracingleague.com/trick-wiki/">tricks website</a>. In Videos 9 and 10, we reproduced the lazy headslide and spindive 540. We have to prepare a jumping platform and run with a full speed to have the lazy headslide. On the other hand, the spindive is pretty similar to the lazy headslide, but we need to immediately change the wheel directions before the car jumps out of the platform.
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/TWOZ7bVg0l4" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 9: Lazy headslide.</p>
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/2qHN7X2Bq3I" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 10: Spindive 540.</p>
+	
+	Last, we tried to see the balance of the robot. We made the car go forward at full speed and suddenly go backward, which is shown in Video 11. We can see the car can stand with one set of wheels at a period of time, but the time is vary depending on the surface.
+	
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/LQUVGMfkt0s" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 11: One wheel test.</p>
+	
+	<hr>
+	After we played around with the RC car, we started to set up the virtual robot in the simulator, so we could test the robot’s performance in order to prevent errors before setting up the RC car in the real world. We will need to install the “ros-melodic-rosmon” library in our VM, but there is an error while installing, which is shown in Figure 10.
+	
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/error.PNG" alt="Set up 1" style="width:40%"></div>
+    <p class="btmspace-5 text-center" >Figure 10: The error message for installing the library in the terminal.</p>
+	
+	In order to fix the issue, we have to set up the “Software & Updates” menu in the right order, which shows in Figure 11. Once we updated the setting, the library could be installed properly.
+
+	
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/setting.PNG" alt="Set up 1" style="width:40%"></div>
+    <p class="btmspace-5 text-center" >Figure 11: The setting of the updates.</p>
+	
+	Next, we downloaded the simulator program from the course website and compiled it in the terminal that shows in Figure 12.
+	
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/compile.PNG" alt="Set up 1" style="width:40%"></div>
+    <p class="btmspace-5 text-center" >Figure 12: The compile process of the simulator.</p>
+	
+	Once the simulator has fully set up, we could run the lab3-manager command in the terminal to start the simulator. The simulator environment is displayed in Figures 13.
+	<div style="text-align:center;">
+    <img class="img-rounded" src="lab3/simulator.PNG" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab3/sim_env.PNG" alt="Set up 1" style="width:30%"></div>
+    <p class="btmspace-5 text-center" >Figure 13: The 2D image of the map (right), the 3D image of the map.</p>
+	
+	Then, we could run the command “robot-keyboard-teleop” in the new terminal, so we could control the virtual robot with the keyboard. We played around with the various toggles of the simulator and tried to observe the control performance of the robot. We realized that the linear and angular speed can go to infinitely small, but the minimum value for us to observe is that 0.000106 m/s for the linear speed and 0.01278 m/s for the angular velocity. Besides, we tried to kidnap the robot while it is moving. We noticed that the robot can still move in the same direction once it was placed in the other location. However, if the robot bumps into an obstacle, the robot symbol will turn into an exclamation mark. The robot will stop until the user moves it to the free space of the map. The demonstration is shown in the following video.
+	
+	<div style="text-align:center;"><iframe width="720" height="360" src="https://www.youtube.com/embed/9fCcLpfN7ZI" frameborder="0" allowfullscreen></iframe></div>
+	<p class="btmspace-5 text-center" >Video 12: Simulator demostration.</p>
+	
+
+	
+	
+
+	   
+	   
+</p>
+
+	</div>
+        <footer class="mt-5">
+            <p class="text-center">Copyright © 2020 Junghsien Wei (Sam) - ECE 4960</p>
+        </footer>
+    </div>
+
+    <!-- load JS files -->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- https://popper.js.org/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- Slick Carousel -->
+
+    <script>
+        function setCarousel() {
+            var slider = $('.tm-img-slider');
+
+            if (slider.hasClass('slick-initialized')) {
+                slider.slick('destroy');
+            }
+
+            if ($(window).width() > 991) {
+                // Slick carousel
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            } else {
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            if (renderPage) {
+                $('body').addClass('loaded');
+            }
+
+            setCarousel();
+
+            $(window).resize(function () {
+                setCarousel();
+            });
+
+            // Close menu after link click
+            $('.nav-link').click(function () {
+                $('#mainNav').removeClass('show');
+            });
+
+            // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top + 1
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+        });
+    </script>
+
+</body>
+
+</html>
