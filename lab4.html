@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fast Robots: ECE 4960 Lab 4</title>
+    <!--
+
+    Template 2103 Central
+
+	http://www.tooplate.com/view/2103-central
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/tooplate-style.css">
+    <!-- tooplate style -->
+
+    <script>
+        var renderPage = true;
+
+        if (navigator.userAgent.indexOf('MSIE') !== -1
+            || navigator.appVersion.indexOf('Trident/') > 0) {
+            /* Microsoft Internet Explorer detected in. */
+            alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+            renderPage = false;
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="container">
+        <section class="tm-section-head" id="top">
+            <header id="header" class="text-center tm-text-gray">
+                <h1>Fast Robots: ECE 4960 Lab 4</h1>
+            
+            </header>
+
+            <nav class="navbar narbar-light">
+                <a class="navbar-brand tm-text-gray" href="#">
+                    Menu
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
+                    </span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="https://cei-lab.github.io/ECE4960/">Class Info</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab1.html">Lab 1</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab2.html">Lab 2</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab3.html">Lab 3</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab3.html">Lab 4</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="navbar navbar-default navbar-fixed-top">
+                <a href="/index.html" class="navbar-brand"></a>
+                <botton class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </botton>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="mydropdown">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Class info</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 1</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 2</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 3</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 4</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        </section> --><div class="tm-box-3">
+   <p class="btmspace-50 justified" >
+	<p><b>Introduction</b></p>
+In lab 4, we are going to assemble the Sparkfun Qwiic motor driver with the Artemis board to control two motors of the RC car. In the first section, we will write an Arduino program to open-loop control the RC car physically, and in the second section, we will write a simple python script with the Jupyter notebook to control the virtual robot in the simulator.
+
+<hr>
+
+In this section, we will re-assemble our RC car. We will need a small screwdriver to unscrew the upper platform and the bottom platform of the RC car. We could see that there are a PCB board, a power cable, and two DC motors in the upper side container, which is shown in Figure 1. The bottom side of the RC car has a battery connector. 
+<div style="text-align:center;">
+<img class="img-rounded" src="lab4/overview.JPG" alt="Set up 1" style="width:20%"></div>
+<p class="btmspace-5 text-center" >Figure 1: The overview of the robot’s internal structure.</p> 
+
+<p><b>Motor Drive Assembled</b></p>
+We will unsolder the power cable from the PCB board and connect it to the Serially Controlled Motor Driver (SCMD). Besides, we will have to cut both motors’ wires and hook them up to the SCMD. Then, we will connect the SCMD board with the Artemis board using a Qwiic connector and connect the battery to the car’s power socket. The complete assemble is shown in Figure 2.
+<div style="text-align:center;">
+<img class="img-rounded" src="lab4/assemble.JPG" alt="Set up 1" style="width:20%"></div>
+<p class="btmspace-5 text-center" >Figure 2: RC car with the Artemis board assembled.</p> 
+<p><b>Programming</b></p>
+Next, we will have to run an example code from the library (File->Examples->Wire-> Example1_wire) to find the I2C address of the SCMD board, so we could use it to modify our program. The I2C address of the board is “0x5D”, which is shown in Figure 3.
+<div style="text-align:center;">
+<img class="img-rounded" src="lab4/i2caddress.PNG" alt="Set up 1" style="width:30%"></div>
+<p class="btmspace-5 text-center" >Figure 3: The I2C address of the SCMD board.</p> 
+	
+Then, we opened the motor test program from the example and modified the I2C address to the value 0x5D in order to work with our board. We realized that the program works properly, so we expanded the program to the two motors control and tested the value of the motor speed limit. From the reference, the motor level can be set from 0 to 255, but when we ran several tests, we observed that both motors do not spin at the same rate. The left motor can run at the level 30 to 255, and the right motor can run at the level 65 to 255. In Video 1, it shows that both motors run at their lowest level. 
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/cMye85PNRco" frameborder="0" allowfullscreen></iframe></div>
+<p class="btmspace-5 text-center" >Video 1: The motors operate at their lowest level.</p>
+Therefore, we will need to calibrate the motor level to make it move a fairly straight line. The number we used in the demonstration is 100 for the left motor and 125 for the right motor. We could see the robot can move a perfectly straight line in the slow-motion video. The code is shown in Figure 4. 
+<div style="text-align:center;"><iframe width="480" height="240" src="https://www.youtube.com/embed/hkx8XjkGRRE" frameborder="0" allowfullscreen></iframe></div>
+<div style="text-align:center;"><iframe width="480" height="240" src="https://www.youtube.com/embed/s8Kf8q0AO98" frameborder="0" allowfullscreen></iframe></div>
+<p class="btmspace-5 text-center" >Video 2: Robot walks a straight line (normal mode) and (slow-motion mode).</p>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab4/fwd.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 4: The code of going straight.</p> 	
+<p><b>Robot Creativity Behavior</b></p>
+
+Later, we would like to control our robot by whistling and clapping. We combined the motor program with the microphone program in lab 1 in order to achieve this idea. We observed the frequency of the whistle is around 800Hz to 1500Hz, so we stop both motors under this condition. Besides, we operate the motor when the frequency is over 3000Hz. If the motors operate, it will determine whether the status is the forward mode or the turning mode. By default, the motor will operate in the forward mode, but when each time the whistle is triggered,  the mode setting will change to the other mode. In Video 3, we could see that when the whistle is blown, the motor will move forward, and the next time the whistle sounds, only one side of the motor will turn. We could see the actual operation in Video 4 and the code is shown in Figure 5.
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/dGKXFp-Vg2I" frameborder="0" allowfullscreen></iframe></div>
+<p class="btmspace-5 text-center" >Video 3: Motors demonstration while the program is running.</p>
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/je6rqDMS2vM" frameborder="0" allowfullscreen></iframe></div>
+<p class="btmspace-5 text-center" >Video 4: The full demonstration of the robot.</p>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab4/loopcontrol.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab4/voice.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 5: The code of controling robot by whistling.</p> 
+	
+<p><b>Robot Creativity Behavior</b></p>	
+<hr>
+<p><b>Open loop control in the simulator</b></p>
+In this section, we will use the Jupyter notebook to control the robot in the simulator. We followed the instructions from the course website to download the base code in VM. Once the package is installed, we could open the simulator by entering “lab4 manager” in the terminal and open the Jupyter notebook in the other terminal. We will modify our program on the given python code to make the robot take a rectangular loop. 
+<p><b>Programming</b></p>
+
+The original idea is to use the odometry position to find the distance that the robot has moved and make the robot turned while the distance is reached to the given value. Then, the robot will turn until the difference between the turning point and the reaching point is over 1.5 rad because the 90 degrees is about 1.57 rad. The code is shown in Figure 6.
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab4/pose_code.png" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 6: The loop control program with the position information.</p> 	
+<p><b>Robot Creativity Behavior</b></p>
+	
+However, we tested the program and the robot will sometimes freeze at a location, which is shown in Video 5. The reason is that there is a huge noise in the position function, so the value of the angle is always less than 1.57.
+	
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/_IVKpJGYyYM" frameborder="0" allowfullscreen></iframe></div>
+<p class="btmspace-5 text-center" >Video 5: The robot stuck at a location.</p>
+	
+To solve this problem, we decided not to use any position information to control the robot. We just need the dimensions of the rectangle size and the speed of the robot. We could calculate the delay time for the robot to move or turn. The code is shown in Figure 7. 
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab4/pose_time.png" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 7: The loop control program with speed information.</p> 
+	
+In Video 6, we could see that the robot can move a rectangular shape in the simulator, but the odometry is not a perfect shape. We used Matlab to re-draw the robot path, which is shown in Figure 8. We could see that both tests have a delay while turning, so the angle is not close to 90 degrees. In order to solve this issue, we will need to use several sensors as feedback to ensure that the robot is moving at a right angle.
+
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/5M333tcvTes" frameborder="0" allowfullscreen></iframe></div>
+<p class="btmspace-5 text-center" >Video 6: The demonstration of the rectangular loop.</p>
+	
+<div style="text-align:center;">
+<img class="img-rounded" src="lab4/odom1.png" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab4/odom2.png" alt="Set up 1" style="width:30%"></div>
+<p class="btmspace-5 text-center" >Figure 8: The robot paths generated by Matlab. Test 1 (right), Test 2 (left).</p> 	
+
+	   
+	   
+</p>
+
+	</div>
+        <footer class="mt-5">
+            <p class="text-center">Copyright © 2020 Junghsien Wei (Sam) - ECE 4960</p>
+        </footer>
+    </div>
+
+    <!-- load JS files -->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- https://popper.js.org/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- Slick Carousel -->
+
+    <script>
+        function setCarousel() {
+            var slider = $('.tm-img-slider');
+
+            if (slider.hasClass('slick-initialized')) {
+                slider.slick('destroy');
+            }
+
+            if ($(window).width() > 991) {
+                // Slick carousel
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            } else {
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            if (renderPage) {
+                $('body').addClass('loaded');
+            }
+
+            setCarousel();
+
+            $(window).resize(function () {
+                setCarousel();
+            });
+
+            // Close menu after link click
+            $('.nav-link').click(function () {
+                $('#mainNav').removeClass('show');
+            });
+
+            // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top + 1
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+        });
+    </script>
+
+</body>
+
+</html>
