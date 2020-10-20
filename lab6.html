@@ -150,7 +150,7 @@ I wired up the IMU with the Artemis board and downloaded the library to run the 
 <img class="img-rounded" src="lab6/pitch_code.PNG" alt="Set up 1" style="width:50%"></div>
 <p class="btmspace-5 text-center" >Figure 1: The code of the pitch and roll.</p> 	
 <div style="text-align:center;">
-<img class="img-rounded" src="lab6/acc_noisy.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab6/Compare_data.PNG" alt="Set up 1" style="width:40%"></div>
+<img class="img-rounded" src="lab6/acc_noisy.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab6/Compare_data.png" alt="Set up 1" style="width:40%"></div>
 <p class="btmspace-5 text-center" >Figure 2: Angle comparison of pitch and roll (left), Angle vs time plot (right).</p> 	
 	
 However, I noticed that if I put the sensor stationary on the table, the data has lots of noise inside, which shows in Figure 3 (top). The average of the number is -6.0002 and the standard deviation is 6.0118, so I did the calibration for the accelerometer. Besides, I tried to tap the IMU that was still, and I found out that there were several peaks occurred, which is shown in Figure 3 (middle), so I use the Fourier transform to see the frequency response of the data. In Figure 3 (bottom), I could see there is a higher peak (red dot) among the data, and the value is 190 Hz. 
@@ -161,7 +161,7 @@ However, I noticed that if I put the sensor stationary on the table, the data ha
 Therefore, I followed the lecture notes to apply a low-pass filter that shows in Figure 4 (top left) to the data. The sample rate of my program is 100 ms, so the alpha value will be 0.05. I could see the signal is much smoother in Figure 4 (bottom). </p>
 
 <div style="text-align:center;">
-<img class="img-rounded" src="lab6/LPF.PNG" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab6/LPF_acc_code.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab6/acc_filter.PNG" alt="Set up 1" style="width:50%"></div>
+<img class="img-rounded" src="lab6/LPF.png" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab6/LPF_acc_code.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab6/acc_filter.PNG" alt="Set up 1" style="width:50%"></div>
 <p class="btmspace-5 text-center" >Figure 4: Equation of the low pass filter (top left), LPF code (top right), Pitch and roll with LPF (bottom).</p>  	
 	
 When I compare the data with and without the filter, it can obviously see the effect of the LPF to reduce the noise.
@@ -236,7 +236,7 @@ The disadvantage of controlling only a single motor is that the robot is hard to
 	
 I found that the gyroscope value is below the setpoint line, so I tried to use the Ziegler–Nichols method to adjust the parameter. This is a heuristic tuning method. The procedure of the method is to set KI and KD at zero in the beginning. Once KP reaches the ultimate gain where the signal oscillates constantly, we could use the proportion that shows in Figure 15 to adjust the gain. Note: T is the period of the signal wave. 
 <div style="text-align:center;">
-<img class="img-rounded" src="lab6/method.PNG" alt="Set up 1" style="width:45%"></div>
+<img class="img-rounded" src="lab6/method.png" alt="Set up 1" style="width:45%"></div>
 <p class="btmspace-5 text-center" >Figure 15: Ziegler–Nichols method table. <a href="https://en.wikipedia.org/wiki/PID_controller">  [1]</a></p>
 
 I observed the signal wave I plotted, I found the period of my data was 6, so I decided to try the PI control and calculated the KI, which should be 0.9. I realized the gyroscope value was getting closer to the setpoint and it was much smoother but it was still not perfect. Therefore, I calculated the new parameters for the PID control. The parameter’s value is KP = 6, KI = 2, and KD = 4.5. I feel surprised that the signal did match to the setpoint line and the wave had less fluctuation. Besides, the average speed of the motor was 64.43, which was much smaller than I have ever got. The robot will rotate 27 degrees per second. The result is shown in Figure 16.
@@ -260,7 +260,7 @@ Last, I have completed the PID controller for my robot, so I would like to try s
 In the simulator section, I am going to run the truth pose estimation and odometry estimation of the virtual robot and compare both data to observe the difference. Odometry is used to estimate the change in position over time, so I expect the odometry trajectory will be similar to the truth pose but it may have an offset without a filter. In the simulator, I sent the data to the plotter every one second. I made the odometry to start at the same point of the truth pose and ran the robot for 25 seconds and 75 seconds to determine whether the time will affect the result. In Figure 18, I realized that the odometry has a similar shape to the truth pose trajectory. However, when the time increases, the offset between the odometry trajectory and the truth pose will increase because the odometry will consider the previous location to predict the next location. If the odometry with noise has a wrong location, then the estimation will become inaccurate when the time increases. 
 
 <div style="text-align:center;">
-<img class="img-rounded" src="lab6/data_25.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab6/data_75.PNG" alt="Set up 1" style="width:45%"></div>
+<img class="img-rounded" src="lab6/data_25.png" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab6/data_75.png" alt="Set up 1" style="width:45%"></div>
 <p class="btmspace-5 text-center" >Figure 18: The trajectory of odometry and truth pose with 25 seconds (left) and 75 seconds (right).</p>
 
 <div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/hXA754rYwss" frameborder="0" allowfullscreen></iframe>
@@ -270,11 +270,11 @@ In the simulator section, I am going to run the truth pose estimation and odomet
 Besides, I plotted ten points when the robot is stationary and I realized that the truth pose will be fixed but the odometry trajectory will be affected by the noise, which is shown in Figure 19. Therefore, I made the robot move in a straight line (in the x-direction) but at different speeds to discuss whether the speed will affect the noise and the odometry. The x-axes odometry at speed 1 m/s has an average percentage difference of 773.286 % and the y-axes odometry has an average percentage difference of 11.58 %. The x-axes odometry at speed 0.5 m/s has an average percentage difference of 832.28 % and the y-axes odometry has an average percentage difference of 29.41 %. I could see that the noise has a huge influence on the odometry, so I will need to use the Bayes filter to optimize the estimation. 
 
 <div style="text-align:center;">
-<img class="img-rounded" src="lab6/stationary.PNG" alt="Set up 1" style="width:45%"></div>
+<img class="img-rounded" src="lab6/stationary.png" alt="Set up 1" style="width:45%"></div>
 <p class="btmspace-5 text-center" >Figure 19: The trajectory of odometry and truth pose when the robot is still.</p>
 
 <div style="text-align:center;">
-<img class="img-rounded" src="lab6/sim_code.PNG" alt="Set up 1" style="width:45%"></div>
+<img class="img-rounded" src="lab6/sim_code.png" alt="Set up 1" style="width:45%"></div>
 <p class="btmspace-5 text-center" >Figure 20: The simulator plotter code</p>
 	
 	
