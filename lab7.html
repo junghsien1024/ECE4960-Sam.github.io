@@ -172,7 +172,8 @@ Next, I wrote the odometry motion model function to calculate the probability of
 <p class="btmspace-5 text-center" >Figure 3: The code of the odometry motion model program.</p> 
 
 
-The next step is to write the prediction step of the Bayes filter. This function is used to update the belief bar based on the belief from the previous time step and the odometry motion. The function will find the belief of the previous position and compare it with all the possible grid in order to find the probability of the new position. Therefore, it will need to cycle 7200 times to complete the prediction process. 
+The next step is to write the prediction step of the Bayes filter. This function is used to update the belief bar based on the belief from the previous time step and the odometry motion. The function will find the belief of the previous position and compare it with all the possible grid in order to find the probability of the new position. Therefore, it will need to take 51 million loops to finish the calculation for all the grid. 
+So, I tried to consider the grids that have the value of beleif to do the calculation and the rest belief bar will still be zero becuase the previous belief was zero. In this case, it can take about 7200 times cycle to complete the prediction process. It is much faster. 
 
 <br><br>
 <div style="text-align:center;">
