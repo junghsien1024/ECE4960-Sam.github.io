@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fast Robots: ECE 4960 Lab 7</title>
+    <!--
+
+    Template 2103 Central
+
+	http://www.tooplate.com/view/2103-central
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/tooplate-style.css">
+    <!-- tooplate style -->
+
+    <script>
+        var renderPage = true;
+
+        if (navigator.userAgent.indexOf('MSIE') !== -1
+            || navigator.appVersion.indexOf('Trident/') > 0) {
+            /* Microsoft Internet Explorer detected in. */
+            alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+            renderPage = false;
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="container">
+        <section class="tm-section-head" id="top">
+            <header id="header" class="text-center tm-text-gray">
+                <h1>Fast Robots: ECE 4960 Lab 7</h1>
+            
+            </header>
+
+            <nav class="navbar narbar-light">
+                <a class="navbar-brand tm-text-gray" href="#">
+                    Menu
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
+                    </span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="https://cei-lab.github.io/ECE4960/">Class Info</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab1.html">Lab 1</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab2.html">Lab 2</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab3.html">Lab 3</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab4.html">Lab 4</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab5.html">Lab 5</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab6.html">Lab 6</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab7.html">Lab 7</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="navbar navbar-default navbar-fixed-top">
+                <a href="/index.html" class="navbar-brand"></a>
+                <botton class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </botton>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="mydropdown">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Class info</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 1</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 2</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 3</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 4</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 5</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 6</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 7</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+ <div class="tm-box-3">
+<p class="btmspace-50 justified" >
+<p><b>Objective</b></p>
+
+From the last lab, I have compared the truth pose estimation and odometry estimation and realized that the odometry trajectory had huge errors, so it is important to apply the filter on the odometry data to get a better localize estimation. The purpose of this lab is to prepare the precursor program for the next lab which will implement grid localization using Bayes Filter. Also, this lab will ask the students to create an environment and map it with the robot’s sensors for future localization experiments.
+
+<hr>
+
+<p><b> Lab 7(a): Grid Localization using Bayes Filter </b></p>
+
+I downloaded the lab 7 distribution code and played around with the program. I ran the robot without any filter or control implementation and plotted the robot’s truth pose and its odometry trajectory. Figure 1 shows the odometry trajectory has a large offset of the truth pose, which is the same result I got in lab 6.
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/noprob_search.png" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 1: The comparison of odometry and truth pose.</p> 	
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/mXlqsHV5imI" frameborder="0" allowfullscreen></iframe></div>
+<p class="btmspace-5 text-center" >Video 1: The plotting progresses while the robot is moving.</p>
+
+Therefore, I started following the instructions to complete the precursor program. The first step was to write the computation control function. I read the class slide and <a href="https://ccc.inaoep.mx/~mdprl/documentos/CH5.pdf">the robot motion paper </a>  to calculate the rotation and the transition from the odometry data. 
+
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/compute_control.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 2: The code of the compute control program</p> 	
+
+Next, I wrote the odometry motion model function to calculate the probability of state transition <code>P(x’ | x, u) </code>. This function will be used in the prediction step of the Bayes filter. It will take the Gaussian distribution for the three parameters (rotation 1, transition, and rotation 2) for all the possible locations.
+	 
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/odom_motion_control.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 3: The code of the odometry motion model program.</p> 
+
+
+The next step is to write the prediction step of the Bayes filter. This function is used to update the belief bar based on the belief from the previous time step and the odometry motion. The function will find the belief of the previous position and compare it with all the possible grid in order to find the probability of the new position. Therefore, it will need to cycle 7200 times to complete the prediction process. 
+
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/pred_step.png" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 4: The code of the prediction step.</p> 
+
+
+Then, I wrote the sensor model function to calculate the probability of the measurement <code>P(z | x) </code> for the update process. The function will calculate the Gaussian distribution from the sensor measurement and the expected measurement that was provided from the course. 
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/sensor_model.png" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 5: The code of the sensor model.</p> 
+
+
+Last, I finished the update step of the Bayes filter. In this step, the function will take the measurement data with the expected measurement value into the sensor model function to find the probability of each grid. Besides, It is important to normalize the probability to allows us to get the probability for the occurrence of an event, rather than merely the relative likelihood of that event compared to another.
+
+	 
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/update_step.png" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 6: The code of the update step of the Bayes filter.</p> 
+
+
+Once I finished the precursor program, I was curious whether the program works properly. Therefore, I tried to implement the program when the robot went linearly. Video 2 shows the process of the odometry assumption with the Bayes filter. Although the first assumption point was far away from the true point, I believed that my function worked properly because the initial distribution was zero for all the grids except the initial point. Therefore, there was may possible location which had a similar expected measurement if the environment symmetry, so it was hard to find the real point of the robot. However, the odometry trajectory was eventually converged to the truth pose trajectory, so I believe that my code works properly.
+
+<br><br>
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/8KpUsZl0s-Y" frameborder="0" allowfullscreen></iframe></div>
+<p class="btmspace-5 text-center" >Video 2: The demonstration of the Bayes filter with the linear motion.</p>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/video_data_linear.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 7: The trajectory between the belief and the truth poses with the linear motion.</p> 
+
+
+Moreover, I tried the robot with the motion control that was given by the distribution code, which will go straight and rotate per cycle. The Bayes filter works properly as well. So, I will do more tests and discuss more results in the next lab.
+
+<br><br>
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/UrnjKzqHH1g" frameborder="0" allowfullscreen></iframe></div>
+<p class="btmspace-5 text-center" >Video 3: The demonstration of the Bayes filter with the dynamics motion.</p>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/video_data_nonlinear.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 8: The trajectory between the belief and the truth poses with the dynamics motion.</p> 
+
+
+<hr>
+<p><b>Lab 7(b): Mapping </b></p>
+
+In this section, I am going to set up an environment for robot localization in the future lab. I have set up a room whose dimensions are 2.75 m x 1.5 m. To make it interesting, I placed two boxes in the middle of the room to pretend like the islands. The overview of the environment is shown in Figure 9.
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/environment_map.JPG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 9: The overview of the room environment.</p>
+
+Before I started mapping, I made a sanity check by placing the robot at the corner and rotating the robot to scan the environment. I collected the TOF distance measurements and the yaw value from the IMU sensor to generate the line diagram and the polar plot. I compared the data with the real environment which shows in Figure 10. The data seems reliable to me.
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/TOF_scan_label.JPG" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab7/TOF_scan.PNG" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab7/polar_tof.PNG" alt="Set up 1" style="width:30%"></div>
+<p class="btmspace-5 text-center" >Figure 10. The real environment (left), the line diagram of the data (middle), and the polar plot (left).</p>
+
+
+Besides, I have made the tests three times in order to see how reliable the data is and determine the repeatability of the measurements. In Figure 11, it shows the comparison between these three tests. I saw the yaw value was almost the same and the pattern of these tests looked similar, but the time of the measurements was slightly different. I believed the reason was the speed of the motor that controlled by the PID controller which makes the angle increments different. 
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/Comp_TOF_scan.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab7/comp_polar_tof.PNG" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 11: The comparison data of three different tests.</p>
+
+
+Next, I checked the coordinates of each sensor to ensure the measurements could be converted to the inertial reference frame of the room. Both the proximity sensor and TOF sensors had the same coordinates of the room, but the IMU sensor had a different frame. I drew the frame and showed the transformation matrices that I used in Figure 12.
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/axis_trans.png" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 12: The IMU frame with the transformation matrices.</p>
+
+After I finished the sanity check, I built the map manually. I placed the robot in known poses and performed line scans. I collected all the data and used Matlab to make a scatter plot and connected the room boundary with lines, which shows in Figure 13. 
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/scatter_plot.PNG" alt="Set up 1" style="width:65%"> <img class="img-rounded" src="lab7/robot_map.PNG" alt="Set up 1" style="width:65%"></div>
+<p class="btmspace-5 text-center" >Figure 13: The scatter plot and room estimation.</p>
+
+Moreover, I analyzed the yaw value and calculated the robot rotation time. I found the robot will rotate 50 degrees per second, so it will take 7.2 seconds to complete a 360-degree rotation. In order to pair the measurements with 18 readings of the simulator, I will need 0.4 seconds to collect data and each cycle of the code took 130 ms, so I made the program to collect the data every four cycles. The other code was the same as the code that I used in lab 6.
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/TOF_control_code.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 14: The code of control the TOF measurements.</p> 
+
+Last, I wrote a room boundary list in order to visualize your map in the plotter tool of the simulator. The list is shown in Figure 15 and the map is shown in Figure 16.
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/point_list.png" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 15: The start points and end points list.</p>
+<br><br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab7/environment_sim.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 16: The map in the plotter tool of the simulator.</p> 
+
+	
+	
+	
+	
+	
+	
+</p>
+
+	</div>
+        <footer class="mt-5">
+            <p class="text-center">Copyright © 2020 Junghsien Wei (Sam) - ECE 4960</p>
+        </footer>
+    </div>
+
+    <!-- load JS files -->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- https://popper.js.org/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- Slick Carousel -->
+
+    <script>
+        function setCarousel() {
+            var slider = $('.tm-img-slider');
+
+            if (slider.hasClass('slick-initialized')) {
+                slider.slick('destroy');
+            }
+
+            if ($(window).width() > 991) {
+                // Slick carousel
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            } else {
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            if (renderPage) {
+                $('body').addClass('loaded');
+            }
+
+            setCarousel();
+
+            $(window).resize(function () {
+                setCarousel();
+            });
+
+            // Close menu after link click
+            $('.nav-link').click(function () {
+                $('#mainNav').removeClass('show');
+            });
+
+            // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top + 1
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+        });
+    </script>
+
+</body>
+
+</html>
