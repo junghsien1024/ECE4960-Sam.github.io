@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fast Robots: ECE 4960 Lab 8</title>
+    <!--
+
+    Template 2103 Central
+
+	http://www.tooplate.com/view/2103-central
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/tooplate-style.css">
+    <!-- tooplate style -->
+
+    <script>
+        var renderPage = true;
+
+        if (navigator.userAgent.indexOf('MSIE') !== -1
+            || navigator.appVersion.indexOf('Trident/') > 0) {
+            /* Microsoft Internet Explorer detected in. */
+            alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+            renderPage = false;
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="container">
+        <section class="tm-section-head" id="top">
+            <header id="header" class="text-center tm-text-gray">
+                <h1>Fast Robots: ECE 4960 Lab 8</h1>
+            
+            </header>
+
+            <nav class="navbar narbar-light">
+                <a class="navbar-brand tm-text-gray" href="#">
+                    Menu
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
+                    </span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="https://cei-lab.github.io/ECE4960/">Class Info</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab1.html">Lab 1</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab2.html">Lab 2</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab3.html">Lab 3</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab4.html">Lab 4</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab5.html">Lab 5</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab6.html">Lab 6</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab7.html">Lab 7</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab7.html">Lab 8</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="navbar navbar-default navbar-fixed-top">
+                <a href="/index.html" class="navbar-brand"></a>
+                <botton class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </botton>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="mydropdown">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Class info</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 1</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 2</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 3</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 4</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 5</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 6</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 7</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 8</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+ <div class="tm-box-3">
+<div style="text-align:justify;"><p class="btmspace-50 justified" >
+<h3>Objective</h3>
+
+The purpose of this lab is to implement grid localization using the Bayes filter. I will take the TA’s feedback and update the precursor program that I wrote in lab 7. After verifying the Bayes filter program, I will operate the Bayes filter for the entire trajectory which may take around 5-10 minutes. I will record the time to see how efficient my code is. I will also point out the difference between the new code and the previous code by comparing the estimation results.
+
+<hr>
+
+<h3>Implementation</h3>
+
+According to the feedback I received from the TA, Vivek, my compute control and the odom_motion_model function looked good, so I did not modify the functions, which can see in Figures 1 and 2. 
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab8/compute_control.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 1: The code of the compute control program.</p>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab8/odom_motion_control.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 2: The code of the odometry motion model program.</p>
+
+
+In the previous prediction function, I only considered the estimation position that I got from the update step, and calculated the belief bar for the entire grids. However, this process was not correct although the result looked well. The correct prediction step should iterate over all previous and current states. For example, the current cell (0,0,0) should compare with the entire grids and calculate the probability of each cell, so it will need to take 7200 loops to finish the calculation for one iteration and 51 million loops for all the grid. It will be a lot of computation for one prediction step. In order to make the estimation process to run more efficiently, I will set a threshold value to filter the states that have small probabilities because those states don’t contribute a lot to the belief. However, it is important to normalize every time I compared a previous state with the entire current state to ensure that the entire grid has a sum to 1. If the normalization was implemented wrong, the result will look like the trajectory in Figure 3. So, the completed prediction function shows in Figure 4. 
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab8/wrong.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 3: The wrong trajectory with the wrong normalization placed.</p>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab8/predic_code.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 4: The code of the prediction step.</p>
+ 
+
+
+Next, I removed the normalization in the sensor_model function. The normalization should happen after incorporating the measurement likelihood into the belief, which should be in the update step function. The function shows in Figure 5. 
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab8/sensor_code.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 5: The code of the sensor model.</p>
+
+
+Last, I did not change the update function. I knew that the update function would call the sensor-model function to get 18 probabilities of 18 different individual measurements. Each individual measurements are independent given the robot state, so the total probability should be a multiplication of the probabilities of each measurement. I normalized the belief after the computation to prevent arithmetic underflow. I tried to move the normalization into the loop and I found that if I normalized the belief every time I calculated a cell, it will be inaccurate because the normalization may make the signal small number becomes larger without considering the entire girds distribution. For example, if I got the value 0.001 and normalized it, the probability of the cell will be one. If I did the normalization with a grid that had the value 1, 0.01, 0.05, and 0.001, then the cell that has the value 0.001 will still be small and not influence the estimation. So, I normalized only one time after the updated step was finished. The completed updated function shows in Figure 6.
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab8/update_code.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 6: The code of the update step.</p>
+
+
+<hr>
+<h3>Result & discussion</h3>
+
+After I finished all the functions, I did the same tests that I did in the last lab. I tried the linear motion of the robot and plotted the estimation to compare the result with the lab 7 plots, which shows in Figure 7. I noticed that the correct Bayes filter will quickly converge and have less offset to the truth pose, but the wrong filter will have large fluctuations. The reason was that the previous filter only considered a single position in the prediction step, so the correct estimation will be based on the update step. Once the estimation was really close to the true position, the expected measurement and the sensor measurement would be very similar, which leads the estimation to become reasonable. However, if the environment was symmetry or the <code>P(z | x) </code> was too similar, the estimation will be wrong. 
+
+	
+<div style="text-align:center;">
+<img class="img-rounded" src="lab8/video_data_linear.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab8/linear_fourzero.PNG" alt="Set up 1" style="width:35%"></div>
+<p class="btmspace-5 text-center" >Figure 7: The comparison between the wrong filter (left) and the correct Bayes filter (right).</p>
+
+
+Next, I tested the threshold value and observed the factor effects. I tried the threshold value for 0.01, 0.00001, and 0.00000001. The result shows in Figure 8. I realized that the threshold value cannot be too larger. If the threshold value is too large, then the estimation will be inaccurate and the trajectory will be a sawtooth shape because the algorithm considers fewer possible locations of the grid in the prediction step. On the other hand, if the threshold value is too small, the computation will take too long for one iteration, so it is not realistic. 
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab8/linear_twozero.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab8/linear_fourzero.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab8/correct_Bayer_twozero_one.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab8/correct_Bayer_four_zero_one.PNG" alt="Set up 1" style="width:43%"></div>
+<p class="btmspace-5 text-center" >Figure 8. The comparison of different threshold values with linear and nonlinear motion. Top: Linear motion with threshold 0.01 (right) and 0.0001 (left); Bottom: Non-linear motion with threshold 0.01 (right) and 0.0001 (left).</p>
+
+
+Last, I ran the entire given trajectory three times and analyzed the repeatability of the estimation. I also record the elapsed time of the computation. The completed control function is shown in Figure 9 and the results show in Figure 10. I found that the Bayes filter worked properly and each estimation was closed to the truth pose. Besides, the elapsed time of each test was 433.592, 432.932, and 434.713 seconds. The average computation time was 433.746 seconds. If I want to reduce the computation time, I may need to sacrifice the accuracy of the estimation, so I decided to keep the current status for my Bayes filter. Besides, Video 1 and Video 2 shows the demonstration of the Bayes estimation with linear and nonlinear motion. I observed that the prediction belief would be updated when the updated step was completed, so I believed that my program worked properly and I am excited to implement the algorithm on my robot.  
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab8/main_code.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 9: The main function of the Bayes filter.</p>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab8/complete.PNG" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab8/complete2.PNG" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab8/complete3.PNG" alt="Set up 1" style="width:30%"></div>
+<p class="btmspace-5 text-center" >Figure 10: The three results of the completed estimation.</p>
+
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/h7y5bi8OB1w" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="btmspace-5 text-center" >Video 1: The demonstration of the linear motion estimation.</p>	
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/KkCMDzaO0_E" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="btmspace-5 text-center" >Video 2: The demonstration of the non-linear motion estimation.</p>	
+
+</p></div>
+
+	</div>
+        <footer class="mt-5">
+            <p class="text-center">Copyright © 2020 Junghsien Wei (Sam) - ECE 4960</p>
+        </footer>
+    </div>
+
+    <!-- load JS files -->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- https://popper.js.org/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- Slick Carousel -->
+
+    <script>
+        function setCarousel() {
+            var slider = $('.tm-img-slider');
+
+            if (slider.hasClass('slick-initialized')) {
+                slider.slick('destroy');
+            }
+
+            if ($(window).width() > 991) {
+                // Slick carousel
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            } else {
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            if (renderPage) {
+                $('body').addClass('loaded');
+            }
+
+            setCarousel();
+
+            $(window).resize(function () {
+                setCarousel();
+            });
+
+            // Close menu after link click
+            $('.nav-link').click(function () {
+                $('#mainNav').removeClass('show');
+            });
+
+            // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top + 1
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+        });
+    </script>
+
+</body>
+
+</html>
