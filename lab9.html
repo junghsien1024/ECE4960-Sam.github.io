@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fast Robots: ECE 4960 Lab 9</title>
+    <!--
+
+    Template 2103 Central
+
+	http://www.tooplate.com/view/2103-central
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/tooplate-style.css">
+    <!-- tooplate style -->
+
+    <script>
+        var renderPage = true;
+
+        if (navigator.userAgent.indexOf('MSIE') !== -1
+            || navigator.appVersion.indexOf('Trident/') > 0) {
+            /* Microsoft Internet Explorer detected in. */
+            alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+            renderPage = false;
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="container">
+        <section class="tm-section-head" id="top">
+            <header id="header" class="text-center tm-text-gray">
+                <h1>Fast Robots: ECE 4960 Lab 9</h1>
+            
+            </header>
+
+            <nav class="navbar narbar-light">
+                <a class="navbar-brand tm-text-gray" href="#">
+                    Menu
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
+                    </span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="https://cei-lab.github.io/ECE4960/">Class Info</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab1.html">Lab 1</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab2.html">Lab 2</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab3.html">Lab 3</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab4.html">Lab 4</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab5.html">Lab 5</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab6.html">Lab 6</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab7.html">Lab 7</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab8.html">Lab 8</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab9.html">Lab 9</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="navbar navbar-default navbar-fixed-top">
+                <a href="/index.html" class="navbar-brand"></a>
+                <botton class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </botton>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="mydropdown">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Class info</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 1</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 2</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 3</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 4</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 5</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 6</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 7</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 8</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 9</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+ <div class="tm-box-3">
+<div style="text-align:justify;"><p class="btmspace-50 justified" >
+<h3>Objective</h3>
+The purpose of this lab is to implement the Bayes filter on the actual robot and try to localize the estimated position. The course has provided a fully-functional and optimized Bayes filter implementation that works on the virtual robot. I will modify the code and make the module be able to communicate with the real robot through Bluetooth. Then, I will run several tests and compare the difference from the simulations to the practical results. 
+
+<hr>
+<h3>Implementation</h3>
+Before starting the implementation, I need to set up the environment for the testing. The procedure has done in <a href="https://junghsien1024.github.io/ECE4960.github.io/lab7.html">Lab7(b)</a>. After the testing environment has set up, I started working on the Bluetooth program that I wrote in Lab 2. I needed to send three odometry information (x-odom, y-odom, and yaw) and 18 distance measurements to the base station. Because the total number of the data is 21, I added six additional float variables into the function, so the program would be able to send seven data at the same time. I will just need three cycles to get the data for one interaction of the Bayes filter process. The code is shown in Figure 2. The program worked properly for sending a constant value, so I continued to the next step.
+
+Figure 1. The Bluetooth data module. 
+Figure 2. The Bluetooth request_float function.
+
+Then, I started thinking about how my code could control the robot to move between each interaction of the Bayes filter. I took the suggestion from the guideline, but instead of sending the motion commands from the base station to the robot, I stored the different time for each interaction inside the robot at a constant speed. The reason I did not send the control command through Bluetooth was that the wireless communication was unstable on my program and my computer kept freezing while I ran too many commands through Bluetooth, so I would like to make the wireless program be simple. Therefore, I wanted to make my robot to move an 8 shape, so I measured the distance for the eight expected locations and tested the speed with each time difference to find the ideal number for each interaction. In Video 1, it shows that how I adjusted the time for each interaction. Besides, I measured the time of 360-degree rotation which was about 3 seconds, so I used a while loop with a 0.15 seconds time delay to get the 18 equally spaced measurements from the TOF sensor. The completed program is shown in Figure 3.
+
+Video 1. The demonstration of the robot sequence motion.
+Figure 3. The motion control and TOF measurement program.
+
+Next, I integrated the wireless program with the motion control program together. Once I ran the program, there were three situations occur randomly. First, the robot could run properly, but the PID controller will be very unstable, which led the TOF scan inaccurate. I believed that the reason was the transmission time caused a delay and made the PID controller increased the speed in order to achieve the setpoint. To solve this problem, I thought I could write a multithread program to eliminate the delay for the PID controller. Second, the program cannot synchronize with the base station, so the data cannot be sent successfully. The error message shows in Figure 4. 
+
+Figure 4. The error message shows “unsupported command”.
+
+Third, the Bluetooth adapter will fail after the message that shows in Figure 5. I cannot find a reason for this issue. The only solution I knew was to restart my computer twice, which was really time-consuming.
+
+Figure 5. The error message that made the Bluetooth not work.
+
+Moreover, I ran the wireless python program directly on the Jupyter notebook, and the program could run only one time. When I stopped the program, the Bluetooth passthrough would be interrupted Although I unplugged and re-plugged the Bluetooth adapter, it would not solve the problem but make the Bluetooth fail directly. 
+
+<hr>
+<h3>Solution</h3>
+In order to complete the lab, I decided to run all the eight interactions with the USB cable and stored the data in a text file. Then, I wrote a Matlab function to create an array for each interaction, so I could copy and paste the dataset to the Jupyter notebook. Once I got the dataset, I could run the Bayes filter and compare the estimation with the truth pose. The main function is shown in Figure 6, the data function is shown in Figure 7, and the data sort function is shown in Figure 8.
+
+Figure 6. The main function of the Bayes filter.
+Figure 7. The data function for the Bayes filter.
+Figure 8. The data sort function in Matlab.
+
+I made two flow-charts in Figure 9 to show the difference between the ideal implementation and my implementation. In my opinion, using Bluetooth will be more realistic and efficient for the test in the real world, but there is no huge difference and benefits between the results of these two methods, so I think that my solution could work properly.
+
+Figure 9. The flow-chart of the ideal implementation (left), The flow-chart of my implementation (right).
+
+<hr>
+<h3>Result & discussion</h3>
+Once I finished the code, I made two different experiments that are using a uniform prior to the pose with only the update step and testing a sequence motion with the Bayes filter. In the uniform experiment, I picked five points on the map and ran only the update step of the Bayes filter to observe the estimated position. The result is displayed in Figure 10. I noticed that the estimated position of tests 1, 3, and 4 was closed to the ground truth. Tests 2 and 5 had a huge deviation in the true position. The reason is that tests 1, 3, and 4 have more unique characteristics of the position, which means that the probability <code>P(z | x) </code> is more unique and relatively higher. The surrounding of Tests 2 and 5 are relatively empty and there are no recognizable objects nearby, so the TOF measurements are quite similar, which leads to the prediction errors.
+
+Figure 10. The five tests of the uniform experiment.
+	
+I also made a table in Figure 11 that shows the ground truth and the belief point in the update step. Therefore, I could conclude that if the environment was symmetry or too empty, having only the update step in the estimation would be not enough. The prediction step would consider the previous state and the current state to narrow the possible locations and improve the accuracy of the update step. Hence, I will do the second experiment to prove the importance of the prediction step of the Bayes filter. 
+	
+Figure 11. The update status of five tests.
+
+In the second experiment, I did three times on the left side of the environment which contained four target points in order to see the repeatability and robustness of the program. The results show in Figure 12. I noticed that the deviation was huge because the odometry was quite noisy and the default odometry sigma value for the gaussian distribution was too small.
+
+Figure 12. The two estimation trajectory with the default sigma.  
+
+Therefore, I tried to adjust the sigma value and observed the difference. I tried three different parameters which were trans_sigma = 0.1, trans_sigma = 1, trans_sigma = 1 with rotation_sigma = 60, and trans_sigma = 1 with rotation_sigma = 180. The results are displayed in Figure 13. I found that the small sigma will make the result become worse. The reason was that the sigma represented the standard deviation of the distribution, so the small sigma will allow a small difference with the true value. Since the odometry was noisy, I decided to increase the sigma value for both transition and rotation to improve the tolerance of the Bayes filter. When I changed the trans_sigma = 1 with rotation_sigma = 180, it gives me the best result, so I used this parameter in my following tests. 
+
+Figure 13. Different parameters of the sigma value. 
+
+Once I set the parameter, I ran the three half-side tests again and the result was much better than the previous one. Although I changed the parameter, the results had slightly different from the true pose. Therefore, I adjusted the PID controlled rotational scan behavior to make the scan much slower and the radius of the rotation be smaller. It took me lots of time to adjust the motor’s speed because the motion was pretty noisy and was dependent on the battery charge. 
+
+Figure 14. The estimation trajectory with the new parameter.
+
+
+After I adjusted the robot motion, I made the robot go through the entire eight points and collected the data to run with the Bayes filter. Video 2 shows the process of the Bayes filter estimation and Figure 15 shows the result of the estimation trajectory with the true position. The execution time of the process was around 13.5 seconds.
+
+VIdeo 2: The demonstration of the Bayes filter process.
+Figure 15: The Bayes filter result from the entire trajectory.
+Note: The log of the Bayes filter, please click <a href = ""> here </a>.
+
+<h4>My inference of the result</h4>
+I was satisfied that the estimation trajectory looked well. Although there was still a deviation between the true trajectory and the estimation trajectory, the result gave the robot estimated localization. I believed that the major influence of the result was the data fed to the classifier. The odometry information was too noisy and the measurements were not evenly measured. I considered that there were three ways to improve the result. First, using a specific speed for the robot to calculate more accurate odometry data. Since the yaw value was unstable, the entire odometry information would be inaccurate.  Figure 16 shows the odometry function that I used in my program, which could see that the calculation was based on the yaw value. Second, tuning the PID controller parameter was important. The 18 measurements should be equally spaced, so it may be helpful to build a feedback function to ensure the robot to have the measurements properly. Third, adjusting the classifier parameters was critical. Once the odometry data becomes more accurate, the sigma value should be adjusted. Also, the threshold value inside the prediction step should be adjusted as well in order to reach the equilibrium point between the execution speed and the estimation accuracy. 
+
+Figure 16. The odometry function in the robot.
+
+<hr>
+<h3>Summary</h3>
+
+This lab was hard and it took me almost three days to complete. Making Bluetooth work is the most difficult part of the lab. Although I did not collect the data and do the Bayes filter simultaneously, I was confident that my result and program worked well. The robot motion was pretty noisy and adjusting the parameters of the PID controller was dependent on the battery. All in all, I learned a lot in this lab, I will use my spare time to fix the Bluetooth program and make it coordinate with the motion control function. 
+
+</p></div>
+
+	</div>
+        <footer class="mt-5">
+            <p class="text-center">Copyright © 2020 Junghsien Wei (Sam) - ECE 4960</p>
+        </footer>
+    </div>
+
+    <!-- load JS files -->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- https://popper.js.org/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- Slick Carousel -->
+
+    <script>
+        function setCarousel() {
+            var slider = $('.tm-img-slider');
+
+            if (slider.hasClass('slick-initialized')) {
+                slider.slick('destroy');
+            }
+
+            if ($(window).width() > 991) {
+                // Slick carousel
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            } else {
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            if (renderPage) {
+                $('body').addClass('loaded');
+            }
+
+            setCarousel();
+
+            $(window).resize(function () {
+                setCarousel();
+            });
+
+            // Close menu after link click
+            $('.nav-link').click(function () {
+                $('#mainNav').removeClass('show');
+            });
+
+            // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top + 1
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+        });
+    </script>
+
+</body>
+
+</html>
