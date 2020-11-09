@@ -159,22 +159,38 @@ The purpose of this lab is to implement the Bayes filter on the actual robot and
 <hr>
 <h3>Implementation</h3>
 Before starting the implementation, I need to set up the environment for the testing. The procedure has done in <a href="https://junghsien1024.github.io/ECE4960.github.io/lab7.html">Lab7(b)</a>. After the testing environment has set up, I started working on the Bluetooth program that I wrote in Lab 2. I needed to send three odometry information (x-odom, y-odom, and yaw) and 18 distance measurements to the base station. Because the total number of the data is 21, I added six additional float variables into the function, so the program would be able to send seven data at the same time. I will just need three cycles to get the data for one interaction of the Bayes filter process. The code is shown in Figure 2. The program worked properly for sending a constant value, so I continued to the next step.
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/C_code2.png" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 1: The Bluetooth data module. </p> 
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/C_code3.png" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 2: The Bluetooth request_float function.</p>
 
-Figure 1. The Bluetooth data module. 
-Figure 2. The Bluetooth request_float function.
 
 Then, I started thinking about how my code could control the robot to move between each interaction of the Bayes filter. I took the suggestion from the guideline, but instead of sending the motion commands from the base station to the robot, I stored the different time for each interaction inside the robot at a constant speed. The reason I did not send the control command through Bluetooth was that the wireless communication was unstable on my program and my computer kept freezing while I ran too many commands through Bluetooth, so I would like to make the wireless program be simple. Therefore, I wanted to make my robot to move an 8 shape, so I measured the distance for the eight expected locations and tested the speed with each time difference to find the ideal number for each interaction. In Video 1, it shows that how I adjusted the time for each interaction. Besides, I measured the time of 360-degree rotation which was about 3 seconds, so I used a while loop with a 0.15 seconds time delay to get the 18 equally spaced measurements from the TOF sensor. The completed program is shown in Figure 3.
 
-Video 1. The demonstration of the robot sequence motion.
-Figure 3. The motion control and TOF measurement program.
+
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/BlvZHYoxbxE" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="btmspace-5 text-center" >Video 1: The demonstration of the robot sequence motion.</p>		
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/C_code1.png" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 3: The motion control and TOF measurement program.</p>
+
 
 Next, I integrated the wireless program with the motion control program together. Once I ran the program, there were three situations occur randomly. First, the robot could run properly, but the PID controller will be very unstable, which led the TOF scan inaccurate. I believed that the reason was the transmission time caused a delay and made the PID controller increased the speed in order to achieve the setpoint. To solve this problem, I thought I could write a multithread program to eliminate the delay for the PID controller. Second, the program cannot synchronize with the base station, so the data cannot be sent successfully. The error message shows in Figure 4. 
 
-Figure 4. The error message shows “unsupported command”.
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/error_2.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 4: The error message shows “unsupported command”.</p>
+
 
 Third, the Bluetooth adapter will fail after the message that shows in Figure 5. I cannot find a reason for this issue. The only solution I knew was to restart my computer twice, which was really time-consuming.
 
-Figure 5. The error message that made the Bluetooth not work.
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/error.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 5: The error message that made the Bluetooth not work.</p>
+
 
 Moreover, I ran the wireless python program directly on the Jupyter notebook, and the program could run only one time. When I stopped the program, the Bluetooth passthrough would be interrupted Although I unplugged and re-plugged the Bluetooth adapter, it would not solve the problem but make the Bluetooth fail directly. 
 
@@ -182,19 +198,34 @@ Moreover, I ran the wireless python program directly on the Jupyter notebook, an
 <h3>Solution</h3>
 In order to complete the lab, I decided to run all the eight interactions with the USB cable and stored the data in a text file. Then, I wrote a Matlab function to create an array for each interaction, so I could copy and paste the dataset to the Jupyter notebook. Once I got the dataset, I could run the Bayes filter and compare the estimation with the truth pose. The main function is shown in Figure 6, the data function is shown in Figure 7, and the data sort function is shown in Figure 8.
 
-Figure 6. The main function of the Bayes filter.
-Figure 7. The data function for the Bayes filter.
-Figure 8. The data sort function in Matlab.
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/main_code.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 6: The main function of the Bayes filter.</p>
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/data_code.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab9/bayes_code.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 7: The data function for the Bayes filter.</p>
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/matlab_code.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 8: The data sort function in Matlab.</p>
+
 
 I made two flow-charts in Figure 9 to show the difference between the ideal implementation and my implementation. In my opinion, using Bluetooth will be more realistic and efficient for the test in the real world, but there is no huge difference and benefits between the results of these two methods, so I think that my solution could work properly.
 
-Figure 9. The flow-chart of the ideal implementation (left), The flow-chart of my implementation (right).
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/flow_chart.png" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab9/flow_chart2.png" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 9: The flow-chart of the ideal implementation (left), The flow-chart of my implementation (right).</p>
+
 
 <hr>
 <h3>Result & discussion</h3>
 Once I finished the code, I made two different experiments that are using a uniform prior to the pose with only the update step and testing a sequence motion with the Bayes filter. In the uniform experiment, I picked five points on the map and ran only the update step of the Bayes filter to observe the estimated position. The result is displayed in Figure 10. I noticed that the estimated position of tests 1, 3, and 4 was closed to the ground truth. Tests 2 and 5 had a huge deviation in the true position. The reason is that tests 1, 3, and 4 have more unique characteristics of the position, which means that the probability <code>P(z | x) </code> is more unique and relatively higher. The surrounding of Tests 2 and 5 are relatively empty and there are no recognizable objects nearby, so the TOF measurements are quite similar, which leads to the prediction errors.
 
-Figure 10. The five tests of the uniform experiment.
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/uniform1.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/uniform2.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/uniform3.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/uniform4.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/uniform5.PNG" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 10: The five tests of the uniform experiment.</p>
+
 	
 I also made a table in Figure 11 that shows the ground truth and the belief point in the update step. Therefore, I could conclude that if the environment was symmetry or too empty, having only the update step in the estimation would be not enough. The prediction step would consider the previous state and the current state to narrow the possible locations and improve the accuracy of the update step. Hence, I will do the second experiment to prove the importance of the prediction step of the Bayes filter. 
 	
@@ -217,7 +248,7 @@ After I adjusted the robot motion, I made the robot go through the entire eight 
 
 VIdeo 2: The demonstration of the Bayes filter process.
 Figure 15: The Bayes filter result from the entire trajectory.
-Note: The log of the Bayes filter, please click <a href = ""> here </a>.
+Note: The log of the Bayes filter, please click <a href = "lab9/Best.pdf"> here </a>.
 
 <h4>My inference of the result</h4>
 I was satisfied that the estimation trajectory looked well. Although there was still a deviation between the true trajectory and the estimation trajectory, the result gave the robot estimated localization. I believed that the major influence of the result was the data fed to the classifier. The odometry information was too noisy and the measurements were not evenly measured. I considered that there were three ways to improve the result. First, using a specific speed for the robot to calculate more accurate odometry data. Since the yaw value was unstable, the entire odometry information would be inaccurate.  Figure 16 shows the odometry function that I used in my program, which could see that the calculation was based on the yaw value. Second, tuning the PID controller parameter was important. The 18 measurements should be equally spaced, so it may be helpful to build a feedback function to ensure the robot to have the measurements properly. Third, adjusting the classifier parameters was critical. Once the odometry data becomes more accurate, the sigma value should be adjusted. Also, the threshold value inside the prediction step should be adjusted as well in order to reach the equilibrium point between the execution speed and the estimation accuracy. 
