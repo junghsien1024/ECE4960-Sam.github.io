@@ -178,21 +178,21 @@ Then, I started thinking about how my code could control the robot to move betwe
 <p class="btmspace-5 text-center" >Figure 3: The motion control and TOF measurement program.</p>
 
 
-Next, I integrated the wireless program with the motion control program together. Once I ran the program, there were three situations occur randomly. First, the robot could run properly, but the PID controller will be very unstable, which led the TOF scan inaccurate. I believed that the reason was the transmission time caused a delay and made the PID controller increased the speed in order to achieve the setpoint. To solve this problem, I thought I could write a multithread program to eliminate the delay for the PID controller. Second, the program cannot synchronize with the base station, so the data cannot be sent successfully. The error message shows in Figure 4. 
+Next, I integrated the wireless program with the motion control program together. Once I ran the program, there were three situations occured randomly. First, the robot could run properly, but the PID controller would be very unstable, which led the TOF scan inaccurate. I believed that the reason was the wireless transmission time caused a delay and made the PID controller increased the speed in order to achieve the setpoint. To solve this problem, I thought I could write a multithread program to eliminate the delay for the PID controller. Second, the program cannot synchronize with the base station, so the data cannot be sent successfully. I could not find the reason why the float command cannot be received. The error message shows in Figure 4. 
 
 <div style="text-align:center;">
 <img class="img-rounded" src="lab9/error_2.PNG" alt="Set up 1" style="width:45%"></div>
 <p class="btmspace-5 text-center" >Figure 4: The error message shows “unsupported command”.</p>
 
 
-Third, the Bluetooth adapter will fail after the message that shows in Figure 5. I cannot find a reason for this issue. The only solution I knew was to restart my computer twice, which was really time-consuming.
+Third, the Bluetooth adapter would fail after the message that shows in Figure 5 poped out. I cannot find a reason for this issue either. The only solution I knew was to restart my computer twice, which was really time-consuming.
 
 <div style="text-align:center;">
 <img class="img-rounded" src="lab9/error.PNG" alt="Set up 1" style="width:45%"></div>
 <p class="btmspace-5 text-center" >Figure 5: The error message that made the Bluetooth not work.</p>
 
 
-Moreover, I ran the wireless python program directly on the Jupyter notebook, and the program could run only one time. When I stopped the program, the Bluetooth passthrough would be interrupted Although I unplugged and re-plugged the Bluetooth adapter, it would not solve the problem but make the Bluetooth fail directly. 
+Moreover, I ran the wireless python program directly on the Jupyter notebook, and the program could run only one time. When I stopped the program, the Bluetooth passthrough of the VM would be interrupted. Although I unplugged and re-plugged the Bluetooth adapter, it would not solve the problem but make the Bluetooth fail directly. 
 
 <hr>
 <h3>Solution</h3>
@@ -227,7 +227,7 @@ Once I finished the code, I made two different experiments that are using a unif
 <p class="btmspace-5 text-center" >Figure 10: The five tests of the uniform experiment.</p>
 
 	
-I also made a table in Figure 11 that shows the ground truth and the belief point in the update step. Therefore, I could conclude that if the environment was symmetry or too empty, having only the update step in the estimation would be not enough. The prediction step would consider the previous state and the current state to narrow the possible locations and improve the accuracy of the update step. Hence, I will do the second experiment to prove the importance of the prediction step of the Bayes filter. 
+I also made a table in Figure 11 that shows the ground truth and the belief point in the update step. Therefore, I could conclude that if the environment was symmetry or too empty, having only the update step in the estimation would be not enough. The prediction step would consider the previous state and the current state to narrow the possible locations and improve the accuracy of the update step. Hence, I will do the second experiment to show the importance of the prediction step of the Bayes filter. 
 	
 <div style="text-align:center;">
 <img class="img-rounded" src="lab9/table.png" alt="Set up 1" style="width:60%"></div>
@@ -240,14 +240,14 @@ In the beginning of the second experiment, I did three tests on the left side of
 <img class="img-rounded" src="lab9/result1.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab9/result2.PNG" alt="Set up 1" style="width:45%"></div>
 <p class="btmspace-5 text-center" >Figure 12: The two estimation trajectory with the default sigma.</p>
 
-Therefore, I tried to adjust the sigma value and observed the difference. I tried three different parameters which were trans_sigma = 0.1, trans_sigma = 1, trans_sigma = 1 with rotation_sigma = 60, and trans_sigma = 1 with rotation_sigma = 180. The results are displayed in Figure 13. I found that the small sigma will make the result become worse. The reason was that the sigma represented the standard deviation of the distribution, so the small sigma will allow a small difference with the true value. Since the odometry was noisy, I decided to increase the sigma value for both transition and rotation to improve the tolerance of the Bayes filter. When I changed the trans_sigma = 1 with rotation_sigma = 180, it gave me the best result, so I used this parameter in my following tests. 
+Therefore, I tried to adjust the sigma value and observed the difference. I tried four different parameters which were trans_sigma = 0.1, trans_sigma = 1, trans_sigma = 1 with rotation_sigma = 60, and trans_sigma = 1 with rotation_sigma = 180. The results are displayed in Figure 13. I found that the small sigma will make the result become worse. The reason was that the sigma represented the standard deviation of the distribution, so the small sigma will allow only a small difference with the true value. Since the odometry was noisy, I decided to increase the sigma value for both transition and rotation to improve the tolerance of the Bayes filter. When I changed the trans_sigma = 1 with rotation_sigma = 180, it gave me the best result, so I used this parameter in my following tests. 
 
 <div style="text-align:center;">
 <img class="img-rounded" src="lab9/sigma_zero1.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/sigmaone.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/sigma_one_rotate_60.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/sigma_180.PNG" alt="Set up 1" style="width:40%"></div>
 <p class="btmspace-5 text-center" >Figure 13: Different parameters of the sigma value. Top: trans_sigma = 0.1 (left), trans_sigma = 1 (right) Bottom: trans_sigma = 1 with rotation_sigma = 60 (left), and trans_sigma = 1 with rotation_sigma = 180 (right).</p>
 
 
-Once I set the parameter, I ran the three half-side tests again and the result was much better than the previous one. Although I changed the parameter, the results had slightly different from the true pose. Therefore, I adjusted the PID controlled rotational scan behavior to make the scan much slower and the radius of the rotation be smaller. It took me lots of time to adjust the motor’s speed because the motion was pretty noisy and was dependent on the battery charge. 
+Once I set the parameter, I ran the three half-side tests again and the result was much better than the previous one. Although I changed the parameter, the results were still different from the true pose. Therefore, I adjusted the PID controlled rotational scan behavior to make the scan much slower and the radius of the rotation be smaller. It took me lots of time to adjust the motor’s speed because the motion was pretty noisy and was dependent on the battery charge. 
 
 <div style="text-align:center;">
 <img class="img-rounded" src="lab9/result_1_no.PNG" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab9/result2_only_update.PNG" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab9/result3.PNG" alt="Set up 1" style="width:30%"></div>
