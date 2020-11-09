@@ -229,32 +229,51 @@ Once I finished the code, I made two different experiments that are using a unif
 	
 I also made a table in Figure 11 that shows the ground truth and the belief point in the update step. Therefore, I could conclude that if the environment was symmetry or too empty, having only the update step in the estimation would be not enough. The prediction step would consider the previous state and the current state to narrow the possible locations and improve the accuracy of the update step. Hence, I will do the second experiment to prove the importance of the prediction step of the Bayes filter. 
 	
-Figure 11. The update status of five tests.
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/table.png" alt="Set up 1" style="width:60%"></div>
+<p class="btmspace-5 text-center" >Figure 11: The update status of five tests.</p>
+
 
 In the second experiment, I did three times on the left side of the environment which contained four target points in order to see the repeatability and robustness of the program. The results show in Figure 12. I noticed that the deviation was huge because the odometry was quite noisy and the default odometry sigma value for the gaussian distribution was too small.
 
-Figure 12. The two estimation trajectory with the default sigma.  
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/result1.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab9/result2.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 12: The two estimation trajectory with the default sigma.</p>
 
 Therefore, I tried to adjust the sigma value and observed the difference. I tried three different parameters which were trans_sigma = 0.1, trans_sigma = 1, trans_sigma = 1 with rotation_sigma = 60, and trans_sigma = 1 with rotation_sigma = 180. The results are displayed in Figure 13. I found that the small sigma will make the result become worse. The reason was that the sigma represented the standard deviation of the distribution, so the small sigma will allow a small difference with the true value. Since the odometry was noisy, I decided to increase the sigma value for both transition and rotation to improve the tolerance of the Bayes filter. When I changed the trans_sigma = 1 with rotation_sigma = 180, it gives me the best result, so I used this parameter in my following tests. 
 
-Figure 13. Different parameters of the sigma value. 
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/uniform1.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/uniform2.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/uniform3.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/uniform4.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab9/uniform5.PNG" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 13: Different parameters of the sigma value.</p>
+
 
 Once I set the parameter, I ran the three half-side tests again and the result was much better than the previous one. Although I changed the parameter, the results had slightly different from the true pose. Therefore, I adjusted the PID controlled rotational scan behavior to make the scan much slower and the radius of the rotation be smaller. It took me lots of time to adjust the motor’s speed because the motion was pretty noisy and was dependent on the battery charge. 
 
-Figure 14. The estimation trajectory with the new parameter.
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/result_1_no.PNG" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab9/result2_only_update.PNG" alt="Set up 1" style="width:30%"> <img class="img-rounded" src="lab9/result3.PNG" alt="Set up 1" style="width:30%"></div>
+<p class="btmspace-5 text-center" >Figure 14: The estimation trajectory with the new parameter.</p>
 
 
 After I adjusted the robot motion, I made the robot go through the entire eight points and collected the data to run with the Bayes filter. Video 2 shows the process of the Bayes filter estimation and Figure 15 shows the result of the estimation trajectory with the true position. The execution time of the process was around 13.5 seconds.
 
-VIdeo 2: The demonstration of the Bayes filter process.
-Figure 15: The Bayes filter result from the entire trajectory.
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/S-DlMa6WRaA" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="btmspace-5 text-center" >Video 2: The demonstration of the Bayes filter process.</p>	
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/best.PNG" alt="Set up 1" style="width:60%"></div>
+<p class="btmspace-5 text-center" >Figure 15: The Bayes filter result from the entire trajectory.</p>
+
+
 Note: The log of the Bayes filter, please click <a href = "lab9/Best.pdf"> here </a>.
 
 <h4>My inference of the result</h4>
 I was satisfied that the estimation trajectory looked well. Although there was still a deviation between the true trajectory and the estimation trajectory, the result gave the robot estimated localization. I believed that the major influence of the result was the data fed to the classifier. The odometry information was too noisy and the measurements were not evenly measured. I considered that there were three ways to improve the result. First, using a specific speed for the robot to calculate more accurate odometry data. Since the yaw value was unstable, the entire odometry information would be inaccurate.  Figure 16 shows the odometry function that I used in my program, which could see that the calculation was based on the yaw value. Second, tuning the PID controller parameter was important. The 18 measurements should be equally spaced, so it may be helpful to build a feedback function to ensure the robot to have the measurements properly. Third, adjusting the classifier parameters was critical. Once the odometry data becomes more accurate, the sigma value should be adjusted. Also, the threshold value inside the prediction step should be adjusted as well in order to reach the equilibrium point between the execution speed and the estimation accuracy. 
 
-Figure 16. The odometry function in the robot.
 
+<div style="text-align:center;">
+<img class="img-rounded" src="lab9/odom_code.png" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 16: The odometry function in the robot.</p>
 <hr>
 <h3>Summary</h3>
 
