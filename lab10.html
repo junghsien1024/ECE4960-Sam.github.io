@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fast Robots: ECE 4960 Lab 10</title>
+    <!--
+
+    Template 2103 Central
+
+	http://www.tooplate.com/view/2103-central
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/tooplate-style.css">
+    <!-- tooplate style -->
+
+    <script>
+        var renderPage = true;
+
+        if (navigator.userAgent.indexOf('MSIE') !== -1
+            || navigator.appVersion.indexOf('Trident/') > 0) {
+            /* Microsoft Internet Explorer detected in. */
+            alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+            renderPage = false;
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="container">
+        <section class="tm-section-head" id="top">
+            <header id="header" class="text-center tm-text-gray">
+                <h1>Fast Robots: ECE 4960 Lab 10</h1>
+            
+            </header>
+
+            <nav class="navbar narbar-light">
+                <a class="navbar-brand tm-text-gray" href="#">
+                    Menu
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
+                    </span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="https://cei-lab.github.io/ECE4960/">Class Info</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab1.html">Lab 1</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab2.html">Lab 2</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab3.html">Lab 3</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab4.html">Lab 4</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab5.html">Lab 5</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab6.html">Lab 6</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab7.html">Lab 7</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab8.html">Lab 8</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab9.html">Lab 9</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab10.html">Lab 10</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="navbar navbar-default navbar-fixed-top">
+                <a href="/index.html" class="navbar-brand"></a>
+                <botton class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </botton>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="mydropdown">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Class info</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 1</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 2</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 3</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 4</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 5</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 6</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 7</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 8</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 9</a>
+                    </li>
+					<li>
+						<a href="#">lab 10</a>
+					</li>
+                </ul>
+            </div>
+        </section>
+ <div class="tm-box-3">
+<div style="text-align:justify;"><p class="btmspace-50 justified" >
+<h3>Objective</h3>
+
+The purpose of this lab is to design a motion planning algorithm on the real robot in order to make it move from an unknown location to a goal location. I will use the robot I have developed in previous labs and develop a searching path program with the Bayes filter to achieve the goal of the lab. I will separate the lab into three parts. First, I will create a function that is able to convert a map frame to a grid frame, so I can use the given code directly to generate the start and the goal location. Next, I will develop the route searching algorithm and test it with the virtual robot. Last, I will implement the system on my robot and test the algorithm in the real world.
+
+<h3>Prelab</h3>
+
+Since the result of the route planning needs to be shown on the python plotter, it requires using Bluetooth to communicate between the base station and the robot in order to collect TOF measurements and compute the estimated position in real-time. Therefore, I followed the TA Alex’s instructions that are posted on the course discussion board. I added a class that shows in Figure 1 in the main function, so I could defiance the robot in the jupyter notebook in order to call the task commands. 
+<br>
+	
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/class_main.png" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 1. The class adds in the main function.</p>
+	
+Once the program was completed, I ran the commands that show in Figure 2 to discover and connect to the robot’s Bluetooth. After the LED on the Artemis board started blinking, I could tell the connection was stable, and I was able to either request the float values from the robot or send the commands to the robots. 
+<br>
+	
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/BLE_command_rec.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab10/BLE_sent.PNG" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 2. The discover and collect commands for BLE.</p>
+	
+
+Next, I started working on the coordinate transformation program in Matlab because I designed a similar function before, so I just needed to modify it for the lab. Figure 3 shows the map frame of the real world map and the simulator map. I used the function that shows the script to generate the occupancy grids. 
+<br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/map_frame.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab10/map_frame_sim.PNG" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 3. The map frame of the real world map and the simulator map.</p>
+	
+The concept of the function was that the system will create multiple dots on the obstacles’ boundaries and then the system will find the range of each grid cell. Later, a loop would identify which cell each dot belongs and add the occupancy flags to the cell. Last, the system will find the cells that have non-zero flags and give the cell a true value (1). The result shows in Figure 4. From the figure, I noticed that the cells within the obstacles’ boundaries have a false occupancy value, so I manually entered the true value to those cells and the final result shows in Figure 5. The function is shown in this <a href="lab10/line_grid.pdf">script</a>. 
+<br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/grid_frame.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab10/sim_grid.PNG" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 4. The grid frame of the real world map and the simulator map.</p>
+
+<br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/grid2_frame.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 5. The updated grid frame of the real world map.</p>
+
+After I got the array of the cell’s index for the occupancy grid, I applied to the code in planner_query.py and generated the start and the goal coordinates for both maps. The documents can be seen in <a href="lab10/goal_target.pdf">REAL_MAP</a> and <a href="lab10/sim_goal.pdf">SIM_MAP</a>. The reason why I decided to use 20 x 20 cells on the map is because the coordinates generated from the program could be directly used in the Bayes filter function and the search program.
+	
+<h3>Route planning</h3>
+After the function could select random goal locations, I started working on the motion planning of the robot. I wanted the robot to do as little communication with Bluetooth as possible because the connection was unstable. Also, I knew that the real robot data was really noisy, so the only stable control was the speed of the motor. Therefore, I decided to find the completed route between the goal and the start point after the robot finished the first Bayes filter estimation. Then, the base station would send a command packet that includes speed control and moving time, so the robot would automatically move from the start point to the goal location. I tried two strategies that the robot would turn when it met the obstacles and stopped when it reached the destination. I used the center point of each cell to consider the possible route and defined the list that contains the obstacle’s cell number. The flow charts were shown in Figure 6. 
+<br>
+<div style="text-align:center;"><ol>
+<li><img class="img-rounded" src="lab10/lab10_first.png" alt="Set up 1" style="width:30%"></li> <br> 
+	<li><img class="img-rounded" src="lab10/lab10_sec.png" alt="Set up 1" style="width:50%"></li></ol></div>
+<p class="btmspace-5 text-center" >Figure 6. The flow charts of two motion planning strategies.</p>
+
+So, the first approach was to determine the relative direction between the start and endpoints and then decide the priority direction of the robot. For instance, if the starting point was on the right side of the goal point, the system would make the robot go right first until the robot reached the same x coordinate. Then, the robot would detect the relative y coordinate and decide to go up or go down. If the robot met obstacles during the process, it would repeat the searching process by trying another three different directions until the robot found the way out. The result was shown in Figure 7.
+
+<br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/route_planning.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 7. The result of the first approach.</p>
+	
+Although this strategy can find the completed path between the goal and the start point, it requires many turns which will be hard to implement on the real robot because the turning angle was hard to control. Therefore, to minimize the robot turning, I modified the first approach and came up with the second solution. In the second method, I defined a midpoint between the starting point and the goal. This point would select at an open place but close to the map’s boundaries. Before the algorithm was operated, the system would determine whether the goal or the starting point was more left and lower because the robot was set to priority go right and up. Hence, the robot would only go as far as possible in one direction until it reached the expected cells. The benefit of the midpoint was that it could make the robot avoid obstacles. I tried to imagine that there was an invisible track surrounding the map which would not hit any obstacles. The midpoint was on this track, so the robot could generate a route without considering the obstacles as long as the robot reached the midpoint successfully. The result is shown in Figure 8.
+<br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/better_route.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 8. The result of the second approach.</p>
+
+The result showed the optimized route between the two points, so I started to combine this algorithm with the Bayes filter. The completed function is shown in this <a href="lab10/sim_py.pdf">document</a>. I made the robot run the Bayes updated step to obtain an estimated starting point. Based on the starting point, the motion planning function would generate the route. Then, the route would insert into the robot control function which would organize the order of the moving direction and calculate the real distance for each direction. Besides, it would use the given velocity to find the time that needs to move in each direction. Then, the robot would start to move and do the Bayes filter after each turning to ensure the robot was in the right direction. If not, the robot would keep fixing the turning angle until the difference was smaller than the defined value. 
+
+<h3>Virtual robot simulation</h3>
+In the testing, I selected four different start/goal sets from <a href="lab10/sim_goal.pdf">SIM_MAP</a>, which were [(8,1),(8,10)], [(18,1),(6,16)], [(1,2),(9,17)], [(13,1),(6,18)] and [(1,2),(9,7)]. (Note: the coordinates from the start/goal program should be changed because the (0,0) was on the top-left corner, but (0,0) of the simulator map was the bottom-left corner.) The results are shown in Figure 9. The blue line was the route for the robot, the green line was the true trajectory and the yellow line was the estimation trajectory. According to the performance, I believed that the program worked properly and the repeatability was high. The demonstration of one testing set is shown in Video 1 that shows the entire process. The log can click <a href="lab10/sim_path_log.pdf">here</a>.
+	
+<br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/task1_result.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab10/task2.PNG" alt="Set up 1" style="width:42%"> <img class="img-rounded" src="lab10/task3_best.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab10/task_4.PNG" alt="Set up 1" style="width:42%"> <img class="img-rounded" src="lab10/task_5.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 9. The motion planning results of five different sets.</p>
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/KnEzJ3jwI0U" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="btmspace-5 text-center" >Video 1. The demonstration of motion planning in virtual robots.</p>	 
+	
+We could see that there was still a deviation between the truth pose trajectory and the expected route. The reason was that the motion planning was highly dependent on the estimation angle from the Bayes filter. Also, the angle between each cell was 20 degrees which may cause errors. If we want to improve our accuracy, we could either reduce the sigma value of the Bayes filter or increase the number of measurements for the observation process. However, I expected that the real robot would be unreliable if I made it do lots of estimation from the Bayes filter because it required many times the observations. So, I tried to run the test without the Bayes filter estimation between each turning. During the process without the Bayes filter as feedback, the robot will only do an updated step at the beginning and the estimation until the robot finishes with all the control commands. The results were shown in Figure 10.
+<br>
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/task3.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab10/task3_2.PNG" alt="Set up 1" style="width:42%"> <img class="img-rounded" src="lab10/task3_3.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab10/task3_best.PNG" alt="Set up 1" style="width:42%"></div>
+<p class="btmspace-5 text-center" >Figure 10. The results of the motion planning without the Bayes filter as feedback (first three) and with Bayes filter as feedback (last).</p>
+
+
+I found that the repeatability of the process was reduced because there was no feedback between each turning, so if the robot turned in the wrong direction, it would continue to do the process. However, the time-efficiency was increased if the robot did not turn in the wrong direction and the accuracy was still acceptable. Therefore, I decided to run the real robot without doing the Bayes filter as feedback while turning first to see its performance, but the robot would check its estimation position when either the bumping obstacles’ flag was triggered or the robot was finished with all the motion commands. If Bluetooth worked well, I would apply the Bayes filter for every turn to improve the robustness of the program.	
+	
+<h3>Real robot implementation</h3>
+
+To make the base station control the real robot easily, I organized the motion control of the robot into three different functions, which were forward function, turning function and the observation function. The functions can be seen in this <a href="lab10/Ardunio_func.pdf">document</a>. The forward function was able to make the robot go straight within the given time from the base station. The turning function could make the robot turn 90 degrees and it would repeat the given time from the base station. The reason why I chose to make the robot turn 90 degrees for each time was that the theoretical turning angle from the motion planning was multiples of 90, so it can make up for the lack of the rotation accuracy. Last, the observation function was used to rotate 360 degrees and measured 18 sets of the surrounding distances. Then, I modified the base station program by adding a module that would take the output from the control function and convert the control command with the travel distances into the readable command with a specific time needed for each command. The example output is shown in Figure 11. Therefore, when the base station sent a letter “f” and a given time, the robot would go straight within the period of given time. The example command is shown in Figure 12. The python module can be seen in this <a href="lab10/route.pdf">document</a>, and the Arduino script for receiving command and requesting float is shown in this <a href="lab10/BLE_fun.pdf">script</a>. 
+
+	
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/covert_exp.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 11. The example output that converts the control command into a real-robot readable command with time.</p> 
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/forward_exp.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 12. The example forwarding command.</p> 
+
+Once I tested the program with several different commands on the real robot, the robot was able to recognize the command and make the corresponding behaviors. So, I continued to modify the Bayes filter. I only changed the observation module and the get_pose module for the Bayes filter, so it can take the result directly from the get_float function. Since the get_float function was an asynchronous function, I followed the instructions from Alex in order to assign a variable with the await command. The code I added in the python script is shown in Figure 13. Then, the overall program is displayed in this <a href="lab10/real_py.pdf">document</a>.
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/float_command.png" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab10/float_main.png" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 13. The code added/modified for the Bayes filter.</p> 
+ 
+
+After I completed all the required changes of the program, I started testing the motion planning of a physical robot. I tried five different start/goal sets from the <a href="lab10/goal_target.pdf">REAL_MAP</a>, which were [(17,2),(10,11)], [(9,16),(17,10)], [(2,4),(10,11)], [(12,7),(4,4)] and [(13,18),(4,15)]. The final results for each test are shown in Figure 14 and the logs are stored in this <a href="lab10/real_log.pdf">document</a>. 
+
+<div style="text-align:center;"><ol>
+<li><img class="img-rounded" src="lab10/real_task1_1.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab10/real1.png" alt="Set up 1" style="width:35%"></li>
+<li><img class="img-rounded" src="lab10/real_task2.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab10/real2.png" alt="Set up 1" style="width:35%"></li>
+<li><img class="img-rounded" src="lab10/real_task3.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab10/real3.png" alt="Set up 1" style="width:35%"></li>
+<li><img class="img-rounded" src="lab10/real_task4.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab10/real4.png" alt="Set up 1" style="width:35%"></li>
+<li><img class="img-rounded" src="lab10/real_task5.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab10/real5.png" alt="Set up 1" style="width:35%"></li>
+	</ol></div>
+<p class="btmspace-5 text-center" >Figure 14. The results of the motion planning (left) and the goal/start map (right).</p>  
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab10/table.png" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Table 1. The error percentage between the goal and the estimation points.</p>  
+From the tests, the robot can successfully predict its start position and generate the proper route between the starting point and the final destination. Video 2 shows the entire process of the motion planning for test 5 [(13,18),(4,15)].
+
+<div style="text-align:center;"><iframe width="600" height="360" src="https://www.youtube.com/embed/44SP9H2c1mI" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="btmspace-5 text-center" >Video 2. The demonstration of the motion planning for test 5. </p>	 
+	
+From the demonstration, the robot’s motion control was noisy and had motion inertia, so I needed to adjust the robot angle manually if the angle offset between the expected angles was too large. However, the robot can successfully follow the motion commands from the base station and tried its best to reach the destination. 
+
+
+<h3>Discussion and future improvement</h3>
+According to the tests in the simulator and real world, the motion planning algorithm that I designed worked well that can avoid all obstacles and create a proper route for the robot. However, the repeatability performance of the real robot was pretty low because of  the robot’s motion. Unlike the virtual robot, the physical robot had a motion inertia when going forward and had a large deviation when turning around, so the robot would become difficult to predict the current position and direction. Without any feedback control, the robot direction was hard to be fixed. Therefore, if I had more time to work on this lab, I would spend more time on tuning the robot turning and forwarding function. Also, using the bayes filter as the robot feedback on each turn although it would increase the total process time. Moreover, the IMU sensor should be calibrated more precisely in order to get better yaw odometry estimation. All in all, I learned how to implement the motion planning on the real robot and the wireless communication eventually worked for my robot.  
+
+
+
+	
+
+
+
+
+
+</p></div>
+
+	</div>
+        <footer class="mt-5">
+            <p class="text-center">Copyright © 2020 Junghsien Wei (Sam) - ECE 4960</p>
+        </footer>
+    </div>
+
+    <!-- load JS files -->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- https://popper.js.org/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- Slick Carousel -->
+
+    <script>
+        function setCarousel() {
+            var slider = $('.tm-img-slider');
+
+            if (slider.hasClass('slick-initialized')) {
+                slider.slick('destroy');
+            }
+
+            if ($(window).width() > 991) {
+                // Slick carousel
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            } else {
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            if (renderPage) {
+                $('body').addClass('loaded');
+            }
+
+            setCarousel();
+
+            $(window).resize(function () {
+                setCarousel();
+            });
+
+            // Close menu after link click
+            $('.nav-link').click(function () {
+                $('#mainNav').removeClass('show');
+            });
+
+            // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top + 1
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+        });
+    </script>
+
+</body>
+
+</html>
