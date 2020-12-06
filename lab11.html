@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fast Robots: ECE 4960 Lab 11</title>
+    <!--
+
+    Template 2103 Central
+
+	http://www.tooplate.com/view/2103-central
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/tooplate-style.css">
+    <!-- tooplate style -->
+
+    <script>
+        var renderPage = true;
+
+        if (navigator.userAgent.indexOf('MSIE') !== -1
+            || navigator.appVersion.indexOf('Trident/') > 0) {
+            /* Microsoft Internet Explorer detected in. */
+            alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+            renderPage = false;
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="container">
+        <section class="tm-section-head" id="top">
+            <header id="header" class="text-center tm-text-gray">
+                <h1>Fast Robots: ECE 4960 Lab 11</h1>
+            
+            </header>
+
+            <nav class="navbar narbar-light">
+                <a class="navbar-brand tm-text-gray" href="#">
+                    Menu
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
+                    </span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="https://cei-lab.github.io/ECE4960/">Class Info</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab1.html">Lab 1</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab2.html">Lab 2</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab3.html">Lab 3</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab4.html">Lab 4</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab5.html">Lab 5</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab6.html">Lab 6</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab7.html">Lab 7</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab8.html">Lab 8</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab9.html">Lab 9</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab10.html">Lab 10</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab11.html">Lab 11</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="navbar navbar-default navbar-fixed-top">
+                <a href="/index.html" class="navbar-brand"></a>
+                <botton class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </botton>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="mydropdown">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Class info</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 1</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 2</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 3</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 4</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 5</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 6</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 7</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 8</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 9</a>
+                    </li>
+					<li>
+						<a href="#">lab 10</a>
+					</li>
+					<li>
+						<a href="#">lab 11</a>
+					</li>
+                </ul>
+            </div>
+        </section>
+ <div class="tm-box-3">
+<div style="text-align:justify;"><p class="btmspace-50 justified" >
+<h3>Objective</h3>
+
+The purpose of this lab is to familiarize with linear controllers, LQR control, and their cost functions. The goal is to make the robot perform full speed wall following along an interior corner. In this lab, I will focus on measuring the characteristics of the robot to find an A and a B matrix to describe the dynamics of the system. I will also find the proportion between the motor value and the force. Last, I will develop an LQR controller and analyze the performance.  
+
+<h3>Robot’s characteristics</h3>
+
+To achieve the goal, I configured the robot to make the TOF sensor pointing forward, a proximity sensor elevating over the wheels and pointing sideways. The IMU sensor was at the top of the robot. The outlook of the robot is shown in Figure 1.
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/outlook.JPG" alt="Set up 1" style="width:30%"></div>
+<p class="btmspace-5 text-center" >Figure 1. The outlook of the robot.</p> 
+
+Since the robot would be operated at a full speed, I tested the proximity sensor again to understand its capabilities. I found that the elapsed time for the measurement was about 0.1 seconds when I set the sensor at the mode “Integration 4” (<code>proximitySensor.setProxIntegrationTime(4);</code>) Then, I found the maximum distance the sensor could measure was  17.78 centimeters and the minimum distance was 9.2 centimeters. Therefore, the set-point value I picked was 11.8 centimeters.
+
+Next, I wrote a function that was able to cover the force that was computed from the LQR controller into the motor value between [0,254]. So, I made the robot move at each speed for 0.2 seconds and collected the distance. The result is shown in Figure 2.
+	
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/motor_dis.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 2. Distance versus motor value.</p> 
+
+I assumed the motion was a constant acceleration, so I can find the acceleration by taking the distance into the equation <code>dis = 0.5 * acc * t^2</code>. The result is shown in Figure 3.
+ 
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/motor_force.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 3. Force versus motor value.</p> 
+
+To find the fit curve line of the result, I used the Matlab fit function to find a polynomial curve with force = f(motor) equation. The result is shown in Figure 4. However, the input should be the force instead of the motor value, so I reversed the polynomial equation and the new curve is shown in Figure 5 with a new curve equation: motor = f(force). 
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/m2force.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab11/force_fit.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 4. The polynomial curve of force = f(motor) and the curve’s equation.</p> 
+	
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/force2m.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab11/motor_fit.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 5. The polynomial curve of motor = f(force) and the curve’s equation.</p>
+
+
+Once I got the proportion between the motor value and the force, I completed a force-to-motor function that shows in Figure 6.
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/force2motor.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 6. The force-to-motor function.</p>
+
+After that, I had to figure out how to describe the robot system in state-space to apply the LQR controller. I made several assumptions about the system. First, the only input was the torque around the robot axis. Next, the robot velocity was always close to the upper limit (254 for the left motor and 240 for the right motor). So, the state space would be [distance from the wall, d; the orientation of the robot, theta; the angular velocity of the robot, thetadot], where theta-dot is included because the robot has momentum. Then, I created the situation the robot would work in and plotted the data of angle, angular velocity, proximity distance, and motor value, which shows in Figure 7.
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/step_response.PNG" alt="Set up 1" style="width:95%"></div>
+<p class="btmspace-5 text-center" >Figure 7. The step-response of the robot.</p>
+
+<h3>Find the A and B matrix</h3>
+
+According to the lecture equation that is shown in Figure 8, I needed to find the drag coefficient and the rising time of the theta-dot, so I zoomed the theta and theta-dot at the time between 0.6 and 1.3 seconds shows in Figure 9. Then, I used the fit curve equation to calculate the rising time which was 0.48 and I also used the Matlab “stepinfo” function to get the rising time which was 0.6272, so I decided to take the average between these two values which was about 0.5536 seconds. Then, I just followed the equation and got the I which was -0.5174. The drag coefficient was the maximum peak value of the theta-dot, which was -2.1522. The maximum speed of the robot was 254 for the left motor and 240 for the right motor. Besides, the sampling rate is 0.1 seconds per data, so the Ts was 10 data/sec.
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/equation.png" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 8. The factor d and I equation from <a href="https://cei-lab.github.io/ECE4960/lectures/FastRobots-18-LQG-and-Labs.pdf">lecture slide 18 page 25</a>.</p>
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/zoom_plot.PNG" alt="Set up 1" style="width:95%"></div>
+<p class="btmspace-5 text-center" >Figure 9. The zooming data of the theta and theta-dot. 
+</p>
+	
+Once I completed the A and B matrix that shows in Figure 10, I started testing the LQR on Matlab to find a proper gain, K. However, I have no idea where I should start, so I decided to try the control on the simulator to understand its performance. 
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/A.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab11/B.PNG" alt="Set up 1" style="width:18%"></div>
+<p class="btmspace-5 text-center" >Figure 10. The A and B matrix. 
+</p>
+
+<h3>Kr and LQR controller in the simulator</h3>
+
+At first, I ran the system without any control to observe the nonlinear dynamics that show in Figure 11. To be more specific, I used Matlab to find the eigenvalues of a square matrix A and the result was [0; -3.0368; -1.5095; 2.9042] which contains a positive value, so it was an unstable system. Then, I used the command <code>rank(ctrb(A,B))</code> to find the rank of the controllability of the matrix, which was 4, so I can now add a controller to make the system become controllable. 
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/open_control.gif" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 11. The nonlinear dynamics system. 
+</p>
+
+I tried to use a Kr controller with different pole/eigenvalue placements, and the results are shown in Table 1. The performances are shown in Figure 12. I realized that the system has four factors in its steady-state, which were z, z-dot, theta, and theta-dot. If the gain has a larger value in z and z-dot, the cart will move much faster. If the gain has a larger value in theta and theta-dot, the swing angle of the pendulum will be larger. Besides, the system will break when the p =[-7.1;-7.2;-7.3;-7.4] where the gain theta was larger than the 360. 
+<br>
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/table1.png" alt="Set up 1" style="width:60%"></div>
+<p class="btmspace-5 text-center" >Table 1. The result of different pole/eigenvalue placements. 
+</p>
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/bad_kr.gif" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/bad_kr.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/barely_Kr.gif" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/barely_kr.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/good_Kr.gif" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/good_kr.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/3_kr.gif" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/agr_Kr.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/5_Krr.gif" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/super_kr.PNG" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 12. The performance of different pole/eigenvalue placements (the same order of the table).</p>
+
+Then, I tried to test LQR K-gains and used the Q = I and R = 0.5. The result is shown in Figure 13 (top). When I increased the R to 10, the cart moved much slower because the robot was not allowed to spend lots of input. The result is shown in Figure 13 (bottom). I tried to used different Q values but the performance did not change much. From the lecture, I understood that the Q defines the weight on the state and the R defines the control energy of the robot. So, if I chose a large value for R, the robot will try to stabilize with less energy. If I chose a large value for Q, the robot will try to stabilize the system with the least possible changes in the states. 
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/I_pointfive_LQR.gif" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/I_pointfive_LQR.PNG" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/large_R_kr.gif" alt="Set up 1" style="width:40%"> <img class="img-rounded" src="lab11/large_R_kr.PNG" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 13. The LQR K-gains with Q = I and R = 0.5. (top) The LQR K-gains with Q = I and R = 10. (bottom)</p>
+
+<h3>LQR controller on the real robot</h3>
+
+After I became familiar with the LQR controller, I then ran the <code> rank(ctrb(A, B)</code> on my real robot, which gives me rank 3, so the robot should be controllable. I tried different values for Q and R and observed the eigenvectors of the equation (A-B*K) on Matlab. Since I wanted to pay more attention to the distance from the wall and the robot’s angular velocity, the eigenvectors should be more negative on these two parameters, so the final Q and R I selected was diag(1,1000,1000) and 10 respectively. The gain was [-0.3162, -45.6004, -10.1695] and the statistics are shown in Figure 14.
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/LQR.PNG" alt="Set up 1" style="width:30%"></div>
+<p class="btmspace-5 text-center" >Figure 14. The statistics of the LQR controller.</p>
+
+After I got the gain of the LQR controller, I wrote a function to calculate the force by taking the difference between the current state and the desired state and multiplying it with the gain. The code is shown in Figure 15.
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/LQR_force.PNG" alt="Set up 1" style="width:50%"></div>
+<p class="btmspace-5 text-center" >Figure 15. The force to the motor value program.</p>
+
+I implemented the LQR controller and operated the robot. The result is shown in Figure 16.
+
+
+<div style="text-align:center;">
+<img class="img-rounded" src="lab11/result.PNG" alt="Set up 1" style="width:95%"></div>
+<p class="btmspace-5 text-center" >Figure 16. The result with the LQR controller. </p> 
+
+<div style="text-align:center;"><iframe width="50%" height="360" src="https://www.youtube.com/embed/XVVSNcR8kkg" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="btmspace-5 text-center" >Video 1. The robot performance with the LQR controller.</p>		
+	
+The controller gave me a result that was similar to Dr. Petersen’s result. The LQR controller was able to balance the robot’s motion and respond quickly to make it stable and it regulated the theta-dot normally to zero. However, the theta and the distance did not become zero because it was related to the penalize value of the gain from the controller. Then, I tried to penalize proximity highest, so the Q value will be diag(1000,1,1) and the gain became [-10,-300.4197, -15.614]. The last two values would become larger instead of being smaller. The reason was that the theta should be higher in order to make the robot get a larger distance from the wall. 
+I believed that the Kalman Filter could help if I am going to measure the proximity data without considering the theta and theta-dot, the filter will find the value of the theta and try to make it to zero. The Kalman filter will be useful to estimate the variables based on a single measurement alone for each timeframe, which I will try to implement the filter on the robot in the next lab.
+
+
+
+	
+
+
+
+
+
+</p></div>
+
+	</div>
+        <footer class="mt-5">
+            <p class="text-center">Copyright © 2020 Junghsien Wei (Sam) - ECE 4960</p>
+        </footer>
+    </div>
+
+    <!-- load JS files -->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- https://popper.js.org/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- Slick Carousel -->
+
+    <script>
+        function setCarousel() {
+            var slider = $('.tm-img-slider');
+
+            if (slider.hasClass('slick-initialized')) {
+                slider.slick('destroy');
+            }
+
+            if ($(window).width() > 991) {
+                // Slick carousel
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            } else {
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            if (renderPage) {
+                $('body').addClass('loaded');
+            }
+
+            setCarousel();
+
+            $(window).resize(function () {
+                setCarousel();
+            });
+
+            // Close menu after link click
+            $('.nav-link').click(function () {
+                $('#mainNav').removeClass('show');
+            });
+
+            // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top + 1
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+        });
+    </script>
+
+</body>
+
+</html>
