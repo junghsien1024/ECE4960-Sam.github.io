@@ -228,9 +228,9 @@ According to the lecture equation that is shown in Figure 8, I needed to find th
 </p>
 	
 Once I completed the A and B matrix that shows in Figure 10, I started testing the LQR on Matlab to find a proper gain, K. However, I have no idea where I should start, so I decided to try the control on the simulator to understand its performance. 
-
+I realized that I put V as the motor value in the matrix instead of the real speed, but the LQR will finally cancel the unit out, so I did not change it. 
 <div style="text-align:center;">
-<img class="img-rounded" src="lab11/newA.png" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab11/B.PNG" alt="Set up 1" style="width:18%"></div>
+<img class="img-rounded" src="lab11/A.png" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab11/B.PNG" alt="Set up 1" style="width:18%"></div>
 <p class="btmspace-5 text-center" >Figure 10. The A and B matrix. 
 </p>
 
