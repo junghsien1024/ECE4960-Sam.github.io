@@ -285,7 +285,11 @@ I implemented the LQR controller and operated the robot. The result is shown in 
 </div>
 <p class="btmspace-5 text-center" >Video 1. The robot performance with the LQR controller.</p>		
 	
-The controller gave me a result that was similar to Dr. Petersen’s result. The LQR controller was able to balance the robot’s motion and respond quickly to make it stable and it regulated the theta-dot normally to zero. However, the theta and the distance did not become zero because it was related to the penalize value of the gain from the controller. Then, I tried to penalize proximity highest, so the Q value will be diag(1000,1,1) and the gain became [-10,-300.4197, -15.614]. The last two values would become larger instead of being smaller. The reason was that the theta should be higher in order to make the robot get a larger distance from the wall. 
+The controller gave me a result that was similar to Dr. Petersen’s result. The LQR controller was able to balance the robot’s motion and respond quickly to make it stable and it regulated the theta-dot normally to zero. 
+However, the theta and the distance did not become zero because it was related to the penalize value of the gain from the controller. Then, I tried to penalize proximity highest, so the Q value will be diag(1000,1,1) and the gain became [-10,-300.4197, -15.614]. 
+	
+The eigenvalue of the proximity distance would be more negative, so the robot would move much more straight theoretically. 
+I noticed that he last two values in the gain would become larger instead of being smaller. The reason was that the theta should be adjusted more in order to make the robot get to the distance setpoint.
 I believed that the Kalman Filter could help if I am going to measure the proximity data without considering the theta and theta-dot, the filter will find the value of the theta and try to make it to zero. The Kalman filter will be useful to estimate the variables based on a single measurement alone for each timeframe, which I will try to implement the filter on the robot in the next lab.
 
 
