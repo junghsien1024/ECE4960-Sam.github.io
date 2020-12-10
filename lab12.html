@@ -175,8 +175,8 @@
 <h3>Objective</h3>
 
 In this lab, I will continue to make the robot perform high-speed wall following along an interior corner. I plan to add a Kalman Filter to estimate the full state before applying the LQR controller to improve the robot’s performance. The goal of the lab is to hit the corner full speed and still move along the second wall after turning. 
-	
-<h3>Tune your Kalman Filter</h3>
+<br>	
+<h3>Tune the Kalman Filter</h3>
 
 From the lab 11 results, I noticed that the theta and the proximity distance would have a larger error while the timestamp increased. Therefore, to improve the LQR controller, I decided to use a Kalman Filter to estimate the full state by giving limited measurements (proximity and thetadot). After I got the estimated full state of the robot, I will take the estimation into the LQR controller to get the proper force, so the robot can be controlled much better. I followed the instructions from the lecture to implement a Kalman Filter in Matlab. The overall program is shown in Figure 1.
 	
