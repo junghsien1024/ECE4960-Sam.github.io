@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Fast Robots: ECE 4960 Lab 12</title>
+    <!--
+
+    Template 2103 Central
+
+	http://www.tooplate.com/view/2103-central
+
+    -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <!-- Google web font "Open Sans" -->
+    <link rel="stylesheet" href="font-awesome-4.5.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="css/tooplate-style.css">
+    <!-- tooplate style -->
+
+    <script>
+        var renderPage = true;
+
+        if (navigator.userAgent.indexOf('MSIE') !== -1
+            || navigator.appVersion.indexOf('Trident/') > 0) {
+            /* Microsoft Internet Explorer detected in. */
+            alert("Please view this in a modern browser such as Chrome or Microsoft Edge.");
+            renderPage = false;
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="container">
+        <section class="tm-section-head" id="top">
+            <header id="header" class="text-center tm-text-gray">
+                <h1>Fast Robots: ECE 4960 Lab 12</h1>
+            
+            </header>
+
+            <nav class="navbar narbar-light">
+                <a class="navbar-brand tm-text-gray" href="#">
+                    Menu
+                </a>
+                <button type="button" id="nav-toggle" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-navicon tm-fa-toggler-icon"></i>
+                    </span>
+                </button>
+                <div id="mainNav" class="collapse navbar-collapse tm-bg-white">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" href="index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="https://cei-lab.github.io/ECE4960/">Class Info</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab1.html">Lab 1</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab2.html">Lab 2</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab3.html">Lab 3</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab4.html">Lab 4</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab5.html">Lab 5</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab6.html">Lab 6</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab7.html">Lab 7</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab8.html">Lab 8</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab9.html">Lab 9</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab10.html">Lab 10</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab11.html">Lab 11</a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link tm-text-gray" target="_blank" rel="noopener noreferrer" href="lab12.html">Lab 12</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="navbar navbar-default navbar-fixed-top">
+                <a href="/index.html" class="navbar-brand"></a>
+                <botton class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mydropdown">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </botton>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="mydropdown">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">Class info</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 1</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 2</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 3</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 4</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 5</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 6</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 7</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 8</a>
+                    </li>
+					<li>
+                        <a href="#">Lab 9</a>
+                    </li>
+					<li>
+						<a href="#">lab 10</a>
+					</li>
+					<li>
+						<a href="#">lab 11</a>
+					</li>
+					<li>
+						<a href="#">lab 12</a>
+					</li>
+                </ul>
+            </div>
+        </section>
+ <div class="tm-box-3">
+<div style="text-align:justify;"><p class="btmspace-50 justified" >
+
+<h3>Objective</h3>
+
+In this lab, I will continue to make the robot perform high-speed wall following along an interior corner. I plan to add a Kalman Filter to estimate the full state before applying the LQR controller to improve the robot’s performance. The goal of the lab is to hit the corner full speed and still move along the second wall after turning. 
+	
+<h3>Tune your Kalman Filter</h3>
+
+From the lab 11 results, I noticed that the theta and the proximity distance would have a larger error while the timestamp increased. Therefore, to improve the LQR controller, I decided to use a Kalman Filter to estimate the full state by giving limited measurements (proximity and thetadot). After I got the estimated full state of the robot, I will take the estimation into the LQR controller to get the proper force, so the robot can be controlled much better. I followed the instructions from the lecture to implement a Kalman Filter in Matlab. The overall program is shown in Figure 1.
+	
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/Kf_process.PNG" alt="Set up 1" style="width:35%"></div>
+<p class="btmspace-5 text-center" >Figure 1. The Kalman Filter program in Matlab.
+</p>	
+
+To tune the Kalman Filter, I used the data from Lab 11 and observed how the filter worked by testing with different parameters which are the process noise (R), measurement noise (Q), and force (ut). The dimension of the process noise (R) and the dimension of measurement noise (Q) should be 3 by 3 matrices. From the results, it seems that the fluctuation is smaller and smoother while the process measurement (R) is larger. This did match my expectations because the prediction covariance (sig_bar) will be affected by the noise. Besides, I noticed that when the measurement noise (Q) is larger, the system will trust the prediction position more because the Kalman gain will be smaller. The final value for R and Q I used is shown in parameter Figure 2. I decided on these values from the testing and the data observation from the measurements. Besides, I scaled down the force to 0.1 of the original to make the filter work. I think the factor was related to the sample rate I used to collect the data. The result is shown in Figure 3. 
+
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/KF_parameter.PNG" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 2. The parameters of KF. </p>	
+	
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/KF.PNG" alt="Set up 1" style="width:90%"></div>
+<p class="btmspace-5 text-center" >Figure 3. The KF on the lab 11 data. </p>	
+
+	
+<h3>LQG Wall Following</h3>
+Once I completed the Kalman Filter tunning, I implemented the same code on the actual robot and modified the current state in the find_force function. Both functions are shown in Figure 4. Then, I tested the robot and plotted the result in Figure 5.
+
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/find_force.PNG" alt="Set up 1" style="width:45%"> <img class="img-rounded" src="lab12/KF_code.PNG" alt="Set up 1" style="width:45%"></div>
+<p class="btmspace-5 text-center" >Figure 4. The find_force function (left) and the KF function (right).</p>	
+
+	
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/z_comp.PNG" alt="Set up 1" style="width:90%"></div>
+<p class="btmspace-5 text-center" >Figure 5. The LQR with KF result. (Blue: raw state, Yellow: estimated state)</p>	
+
+According to the diagram, I noticed that the estimated state was quite large than the raw state, so I tried to debug it on Matlab. Then, I realized that I changed the sample rate to 0.01 sec per data, so the force should be multiplied by 0.01. The comparison data is shown in Figure 6.
+
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/comp.PNG" alt="Set up 1" style="width:90%"></div>
+<p class="btmspace-5 text-center" >Figure 6. The comparison data of LQR with KF. (Blue: raw state, Yellow: estimated state, Green: Matlab estimated state, Red:fixed estimated state)</p>	
+	
+After that, I ran the second test with the LQR and KF to verify everything worked well. From the result in Figure 7, I believed that the program and the robot worked well. Besides, the comparison of the process with KF and without KF shows in Video 1, and the robot with KF was more stable than the robot without KF.
+
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/good_KF.PNG" alt="Set up 1" style="width:90%"></div>
+<p class="btmspace-5 text-center" >Figure 7. The success LQR with KF data.(Blue: raw state, Red: estimated state)</p>
+
+<div style="text-align:center;"><iframe width="50%" height="360" src="https://www.youtube.com/embed/PuNpBgBA4eQ" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="btmspace-5 text-center" >Video 1. The comparison of the LQR without KF (left) and LQR with KF (right).</p>	
+
+<h3>Turn the Corner</h3>
+Next, I implemented the robot to turn 90 degrees when it sees the wall. Before writing the code, I tested the theta value from gyroscope Z reading and noticed that the value will be around -0.1 when the robot turned 90 degrees. Therefore, I made a conditional statement to make the robot turn when the TOF sensor was smaller than 0.38 meters. I got the “0.38” value by doing several tests and this threshold value has larger repeatability. The robot will stop turning if either the theta value is smaller than -0.1 or the turning cycle is greater than 3. Again, I got the threshold from experiments. Moreover, I lower the maximum motor value to 200 and 190 for left and right motors respectively to have better performance. In Video 2, the robot can successfully turn when it saw a wall.
+<br><br>
+<div style="text-align:center;"><iframe width="50%" height="360" src="https://www.youtube.com/embed/mRtkdXV1iOY" frameborder="0" allowfullscreen></iframe> <iframe width="50%" height="360" src="https://www.youtube.com/embed/wKpZMz6lvB8" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="btmspace-5 text-center" >Video 2: The turning process demonstration.</p>	 
+
+<h3>Re-engage LQR</h3>
+
+Last, I re-engaged the LQR controller with KF on the robot after the turn. The main function I operated is shown in Figure 8. I found that the robot would be hard to move straight, so I changed the gain of the LQR controller to penalized the proximity distance more and the new gain is shown in Figure 9.
+
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/main_code.PNG" alt="Set up 1" style="width:40%"></div>
+<p class="btmspace-5 text-center" >Figure 8. The main function of the robot.</p>	
+	
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/K.PNG" alt="Set up 1" style="width:30%"></div>
+<p class="btmspace-5 text-center" >Figure 9. The gain of the LQR.</p>	
+
+After running the robot with the new LQR gain, the robot could successfully turn and follow the second wall, which shows in Video 3. It was important to reset the setpoint for theta as the car has turned 90 degrees. I used the value -0.1 for theta setpoint which I mentioned in the previous section and the first proximity value after turning for the distance setpoint in the new desire state. The raw state and the estimation state results are shown in Figure 10.
+
+<br><br>
+<div style="text-align:center;"><iframe width="50%" height="360" src="https://www.youtube.com/embed/1myBkMe0DF4" frameborder="0" allowfullscreen></iframe>
+</div>
+<p class="btmspace-5 text-center" >Video 3. The LQR engaging after turning the robot.</p>	 
+
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/LGq_raw2.PNG" alt="Set up 1" style="width:90%"> <img class="img-rounded" src="lab12/LGQ2.PNG" alt="Set up 1" style="width:90%"></div>
+<p class="btmspace-5 text-center" >Figure 10. The robot states result in theta setpoint = -0.1.: Raw state (top) and Comparison result (bottom). <br>[Blue: raw state, Red: estimated state]</p>
+
+To see how theta setpoint influences robot performance, I did another two tests with two different theta setpoints which are -0.05 and 0. The results are shown in Figure 11 and Figure 12. I noticed that the estimated theta state from the Kalman Filter was normally to zero and the raw theta state would reach close to the given setpoint. Therefore, I believe that the system I made work properly as expected. 
+
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/LGq_raw3.PNG" alt="Set up 1" style="width:90%"> <img class="img-rounded" src="lab12/LGQ3.PNG" alt="Set up 1" style="width:90%"></div>
+<p class="btmspace-5 text-center" >Figure 11. The robot states result in theta setpoint = -0.05.: Raw state (top) and Comparison result (bottom). <br>[Blue: raw state, Red: estimated state]</p> 
+<br><br><div style="text-align:center;">
+<img class="img-rounded" src="lab12/LGq_raw.PNG" alt="Set up 1" style="width:90%"> <img class="img-rounded" src="lab12/LGQ.PNG" alt="Set up 1" style="width:90%"></div>
+<p class="btmspace-5 text-center" >Figure 12. The robot states result in theta setpoint = 0.: Raw state (top) and Comparison result (bottom). <br>[Blue: raw state, Red: estimated state]</p>	
+
+<h3>Improvement in the future</h3>
+
+If I had more time, I would like to tune the Kalman filter more precisely. From my observation, the process noise should be much larger for my robot. Besides, I will use the PID controller to turn the robot instead of using the open-loop, so the turning angle can be fairly accurate. Overall, the lab was interesting and I learned a lot about how to control the dynamic behaviors with the LQR controller and the Kalman filter. 
+	
+</p></div>
+
+	</div>
+        <footer class="mt-5">
+            <p class="text-center">Copyright © 2020 Junghsien Wei (Sam) - ECE 4960</p>
+        </footer>
+    </div>
+
+    <!-- load JS files -->
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- https://popper.js.org/ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- https://getbootstrap.com/ -->
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- Slick Carousel -->
+
+    <script>
+        function setCarousel() {
+            var slider = $('.tm-img-slider');
+
+            if (slider.hasClass('slick-initialized')) {
+                slider.slick('destroy');
+            }
+
+            if ($(window).width() > 991) {
+                // Slick carousel
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            } else {
+                slider.slick({
+                    autoplay: true,
+                    fade: true,
+                    speed: 800,
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            if (renderPage) {
+                $('body').addClass('loaded');
+            }
+
+            setCarousel();
+
+            $(window).resize(function () {
+                setCarousel();
+            });
+
+            // Close menu after link click
+            $('.nav-link').click(function () {
+                $('#mainNav').removeClass('show');
+            });
+
+            // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+            // Select all links with hashes
+            $('a[href*="#"]')
+                // Remove links that don't actually link to anything
+                .not('[href="#"]')
+                .not('[href="#0"]')
+                .click(function (event) {
+                    // On-page links
+                    if (
+                        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                        &&
+                        location.hostname == this.hostname
+                    ) {
+                        // Figure out element to scroll to
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        // Does a scroll target exist?
+                        if (target.length) {
+                            // Only prevent default if animation is actually gonna happen
+                            event.preventDefault();
+                            $('html, body').animate({
+                                scrollTop: target.offset().top + 1
+                            }, 1000, function () {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+                        }
+                    }
+                });
+        });
+    </script>
+
+</body>
+
+</html>
