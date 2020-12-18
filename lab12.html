@@ -267,6 +267,8 @@ To see how theta setpoint influences robot performance, I did another two tests 
 
 If I had more time, I would like to tune the Kalman filter more precisely. From my observation, the process noise should be much larger for my robot. Besides, I will use the PID controller to turn the robot instead of using the open-loop, so the turning angle can be fairly accurate. Overall, the lab was interesting and I learned a lot about how to control the dynamic behaviors with the LQR controller and the Kalman filter. 
 	
+<h3>Respond the feedback from lab 11</h3>
+I found the LQR controller was operateing in bang-bang mode because the Vmax I used for A matrix was 254 instead of the value in the meter per second unit, so the force would over the limitation and made the motor be either the maximum or the minimum value. I did change it in this lab to get the better performance. The sampling rate was still 10Hz because I did this lab right after lab 11, but the result was still matched my expectations. Last, I made the right motor value always smaller than the left motor in order to make the robot to move straight in the ramp up period, which I did and explained in the previous labs (suggested by the lab instructions). 
 </p></div>
 
 	</div>
